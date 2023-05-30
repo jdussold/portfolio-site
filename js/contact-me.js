@@ -29,22 +29,24 @@ form.addEventListener("submit", function (event) {
   paragraph.style.color = "#607b96";
   paragraph.style.marginTop = "0";
 
-  // Send the form data using AJAX
+  // Send the form data using Fetch API
   const formData = new FormData(form);
-  const xhr = new XMLHttpRequest();
-  xhr.open(form.method, form.action);
-  xhr.setRequestHeader("Accept", "application/json");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState !== XMLHttpRequest.DONE) return;
-    if (xhr.status === 200) {
-      // Handle success
-      console.log(xhr.responseText);
-    } else {
-      // Handle error
-      console.error(xhr.responseText);
-    }
-  };
-  xhr.send(formData);
+  fetch(form.action, {
+    method: form.method,
+    body: formData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Handle success
+        console.log(response);
+      } else {
+        // Handle error
+        console.error(response);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });
 
 // ---------Message form code preview--------------
