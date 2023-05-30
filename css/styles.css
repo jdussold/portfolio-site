@@ -1066,6 +1066,10 @@ a:hover .linkedin-icon-default {
 }
 
 /* Contact Page Styles */
+.hidden-iframe {
+  display: none;
+}
+
 .cp-left-section {
   border-right: 2px solid #1e2d3d;
   width: 348px;
@@ -1118,6 +1122,11 @@ a:hover .linkedin-icon-default {
   flex-direction: column;
   align-items: center;
   margin: 13%;
+}
+
+.cp-message-code-example code {
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .cp-message-code-example {
