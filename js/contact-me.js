@@ -11,23 +11,42 @@ thankYouSection.style.display = "none";
 form.addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent form submission
 
-  // Hide the form
-  form.style.display = "none";
+  // Send the form data asynchronously using Fetch API
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Hide the form
+        form.style.display = "none";
 
-  // Show the thank you section
-  thankYouSection.style.display = "flex";
-  thankYouSection.style.flexDirection = "column";
-  thankYouSection.style.justifyContent = "center";
-  thankYouSection.style.alignItems = "center";
-  thankYouSection.style.marginTop = "40%";
+        // Show the thank you section
+        thankYouSection.style.display = "flex";
+        thankYouSection.style.flexDirection = "column";
+        thankYouSection.style.justifyContent = "center";
+        thankYouSection.style.alignItems = "center";
+        thankYouSection.style.marginTop = "40%";
 
-  // Adjust the spacing between heading and paragraph
-  const heading = thankYouSection.querySelector("h2");
-  const paragraph = thankYouSection.querySelector("p");
-  heading.style.marginBottom = "10px";
-  heading.style.color = "#FFFFFF";
-  paragraph.style.color = "#607b96";
-  paragraph.style.marginTop = "0";
+        // Adjust the spacing between heading and paragraph
+        const heading = thankYouSection.querySelector("h2");
+        const paragraph = thankYouSection.querySelector("p");
+        heading.style.marginBottom = "10px";
+        heading.style.color = "#FFFFFF";
+        paragraph.style.color = "#607b96";
+        paragraph.style.marginTop = "0";
+
+        // Scroll to the thank you section
+        thankYouSection.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Handle form submission errors
+        console.error("Form submission failed with status:", response.status);
+      }
+    })
+    .catch((error) => {
+      // Handle any network errors
+      console.error("An error occurred during form submission:", error);
+    });
 });
 
 // ---------Message form code preview--------------
