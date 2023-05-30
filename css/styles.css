@@ -419,7 +419,7 @@ a:hover .linkedin-icon-default {
 
 .contact-info img {
   margin-right: 10px;
-  width: 20px; /* Adjust the width as needed */
+  width: 20px;
   height: auto;
 }
 
@@ -828,7 +828,7 @@ a:hover .linkedin-icon-default {
 
 .resume-download {
   display: flex;
-  justify-content: center; /* Add this line to center the button horizontally */
+  justify-content: center;
   margin-top: 20px;
 }
 
