@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 400">
+  <style>
+    @font-face {
+      font-family: 'Fira Code';
+      src: url('path/to/FiraCode-Regular.woff2') format('woff2'),
+           url('path/to/FiraCode-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Fira Code';
+      src: url('path/to/FiraCode-Bold.woff2') format('woff2'),
+           url('path/to/FiraCode-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    text {
+      font-family: 'Fira Code', monospace;
+      font-weight: bold;
+    }
+
+    .h1 {
+      font-size: 16px;
+      fill: #FFFFFF;
+    }
+
+    .h2 {
+      font-size: 14px;
+    }
+
+    .float-animation {
+      animation-duration: 6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes float-diagonal-down {
+		0% {
+			transform: translateY(0%);
+			transform: rotate(0%);
+		}
+		50% {
+			transform: translateY(2%);
+			transform: rotate(-2deg);
+		}
+		100% {
+			transform: translateY(0%);
+			transform: rotate(0%);
+		}
+	}
+
+    @keyframes float-left {
+		0% {
+			transform: translateY(0%);
+			transform: rotate(0%);
+		}
+		50% {
+			transform: translateY(2%);
+			transform: rotate(3deg);
+		}
+		100% {
+			transform: translateY(0%);
+			transform: rotate(0%);
+		}
+	}
+
+    @keyframes float-up-down {
+    0% {
+			transform: translateY(0%);
+		}
+		50% {
+			transform: translateY(2%);
+		}
+		100% {
+			transform: translateY(0%);
+		}
+	}
+  </style>
+
+  <rect x="0" y="0" width="400" height="400" fill="#011221" />
+
+  <g>
+    <text x="150" y="200" class="h1 float-animation" style="animation-name: float-diagonal-down;">Web Development</text>
+    <text x="150" y="110" class="h2 float-animation" style="animation-name: float-up-down;" fill="#43D9AD">HTML</text>
+    <text x="250" y="130" class="h2 float-animation" style="animation-name: float-left;" fill="#43D9AD">CSS</text>
+    <text x="30" y="120" class="h2 float-animation" style="animation-name: float-diagonal-down;" fill="#43D9AD">JavaScript</text>
+    <text x="160" y="160" class="h2 float-animation" style="animation-name: float-left;" fill="#43D9AD">React</text>
+    <text x="300" y="180" class="h2 float-animation" style="animation-name: float-up-down;" fill="#43D9AD">React Native</text>
+    <text x="30" y="220" class="h2 float-animation" style="animation-name: float-diagonal-down;" fill="#43D9AD">Angular</text>
+    <text x="140" y="240" class="h2 float-animation" style="animation-name: float-up-down;" fill="#43D9AD">TypeScript</text>
+    <text x="300" y="260" class="h2 float-animation" style="animation-name: float-left;" fill="#43D9AD">Python</text>
+    <text x="30" y="280" class="h2 float-animation" style="animation-name: float-diagonal-down;" fill="#43D9AD">SQL</text>
+    <text x="140" y="330" class="h2 float-animation" style="animation-name: float-up-down;" fill="#43D9AD">API</text>
+    <text x="180" y="40" class="h1 float-animation" style="animation-name: float-diagonal-down;">Art</text>
+    <text x="240" y="60" class="h2 float-animation" style="animation-name: float-up-down;" fill="#C98BDF">Procreate</text>
+    <text x="60" y="30" class="h2 float-animation" style="animation-name: float-up-down;" fill="#C98BDF">Photoshop</text>
+    <text x="30" y="80" class="h2 float-animation" style="animation-name: float-left;" fill="#C98BDF">Illustrator</text>
+    <text x="90" y="280" class="h1 float-animation" style="animation-name: float-left;">Animation</text>
+    <text x="30" y="160" class="h2 float-animation" style="animation-name: float-left;" fill="#FEA55F">After Effects</text>
+    <text x="300" y="100" class="h2 float-animation" style="animation-name: float-up-down;" fill="#FEA55F">Modo</text>
+    <text x="230" y="250" class="h2 float-animation" style="animation-name: float-left;" fill="#FEA55F">Blender</text>
+    <text x="30" y="355" class="h2 float-animation" style="animation-name: float-left;" fill="#FEA55F">Maya</text>
+    <text x="260" y="350" class="h2 float-animation" style="animation-name: float-up-down;" fill="#FEA55F">Lightwave 3D</text>
+  </g>
+</svg>
