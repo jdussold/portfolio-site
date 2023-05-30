@@ -9,8 +9,6 @@ thankYouSection.style.display = "none";
 
 // Handle form submission
 form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent the default form submission
-
   // Hide the form
   form.style.display = "none";
 
@@ -28,25 +26,6 @@ form.addEventListener("submit", function (event) {
   heading.style.color = "#FFFFFF";
   paragraph.style.color = "#607b96";
   paragraph.style.marginTop = "0";
-
-  // Send the form data using Fetch API
-  const formData = new FormData(form);
-  fetch(form.action, {
-    method: form.method,
-    body: formData,
-  })
-    .then((response) => {
-      if (response.ok) {
-        // Handle success
-        console.log(response);
-      } else {
-        // Handle error
-        console.error(response);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
 });
 
 // ---------Message form code preview--------------

@@ -49,7 +49,7 @@
           <div class="info-tab-spacer"></div>
         </div>
         <div class="cp-content">
-          <form id="contact-form" action="https://formsubmit.co/jdussold@gmail.com" method="POST">
+          <form id="contact-form" action="https://formsubmit.co/jdussold@gmail.com" method="POST" target="form-iframe">
             <label for="name">_name:</label>
             <input type="text" id="name" name="name" required>        
             <label for="email">_email:</label>
@@ -58,6 +58,7 @@
             <textarea id="message" name="message" required></textarea>      
             <button type="submit">submit-message</button>
           </form>
+          <iframe name="form-iframe" style="display: none;"></iframe>
           <div id="thank-you-section">
             <h2>Thank you! &#x1F918;</h2>
             <p>Your message has been sent.</p>
