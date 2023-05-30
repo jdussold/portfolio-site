@@ -9,6 +9,8 @@ thankYouSection.style.display = "none";
 
 // Handle form submission
 form.addEventListener("submit", function (event) {
+  //event.preventDefault(); // Prevent form submission
+
   // Hide the form
   form.style.display = "none";
 
