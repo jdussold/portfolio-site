@@ -9,44 +9,42 @@ thankYouSection.style.display = "none";
 
 // Handle form submission
 form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault(); // Prevent the default form submission
 
-  // Send the form data asynchronously using Fetch API
-  fetch(form.action, {
-    method: form.method,
-    body: new FormData(form),
-  })
-    .then((response) => {
-      if (response.ok) {
-        // Hide the form
-        form.style.display = "none";
+  // Hide the form
+  form.style.display = "none";
 
-        // Show the thank you section
-        thankYouSection.style.display = "flex";
-        thankYouSection.style.flexDirection = "column";
-        thankYouSection.style.justifyContent = "center";
-        thankYouSection.style.alignItems = "center";
-        thankYouSection.style.marginTop = "40%";
+  // Show the thank you section
+  thankYouSection.style.display = "flex";
+  thankYouSection.style.flexDirection = "column";
+  thankYouSection.style.justifyContent = "center";
+  thankYouSection.style.alignItems = "center";
+  thankYouSection.style.marginTop = "40%";
 
-        // Adjust the spacing between heading and paragraph
-        const heading = thankYouSection.querySelector("h2");
-        const paragraph = thankYouSection.querySelector("p");
-        heading.style.marginBottom = "10px";
-        heading.style.color = "#FFFFFF";
-        paragraph.style.color = "#607b96";
-        paragraph.style.marginTop = "0";
+  // Adjust the spacing between heading and paragraph
+  const heading = thankYouSection.querySelector("h2");
+  const paragraph = thankYouSection.querySelector("p");
+  heading.style.marginBottom = "10px";
+  heading.style.color = "#FFFFFF";
+  paragraph.style.color = "#607b96";
+  paragraph.style.marginTop = "0";
 
-        // Scroll to the thank you section
-        thankYouSection.scrollIntoView({ behavior: "smooth" });
-      } else {
-        // Handle form submission errors
-        console.error("Form submission failed with status:", response.status);
-      }
-    })
-    .catch((error) => {
-      // Handle any network errors
-      console.error("An error occurred during form submission:", error);
-    });
+  // Send the form data using AJAX
+  const formData = new FormData(form);
+  const xhr = new XMLHttpRequest();
+  xhr.open(form.method, form.action);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      // Handle success
+      console.log(xhr.responseText);
+    } else {
+      // Handle error
+      console.error(xhr.responseText);
+    }
+  };
+  xhr.send(formData);
 });
 
 // ---------Message form code preview--------------
