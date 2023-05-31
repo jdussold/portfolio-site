@@ -908,6 +908,11 @@ a:hover .linkedin-icon-default {
   align-items: center;
 }
 
+.technologies-filter-container li:hover {
+  color: #ffffff;
+  filter: brightness(300%);
+}
+
 .technologies-filter-container li img:first-child {
   margin-right: 30px;
 }
