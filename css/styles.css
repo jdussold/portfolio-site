@@ -910,7 +910,7 @@ a:hover .linkedin-icon-default {
 
 .technologies-filter-container li:hover {
   color: #ffffff;
-  filter: brightness(300%);
+  filter: brightness(150%);
 }
 
 .technologies-filter-container li img:first-child {

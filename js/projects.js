@@ -40,7 +40,7 @@ function updateProjects() {
     const listItem = checkbox.closest("li");
     if (checkbox.checked) {
       listItem.style.color = "#FFFFFF";
-      listItem.style.filter = "brightness(300%)";
+      listItem.style.filter = "brightness(150%)";
     } else {
       listItem.style.color = "";
       listItem.style.filter = "";
