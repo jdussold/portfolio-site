@@ -215,6 +215,24 @@ a:hover .linkedin-icon-default {
   margin-right: 5%;
 }
 
+.cursor {
+  display: inline-block;
+  vertical-align: text-bottom;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .code-block .const {
   color: #4453b9;
 }
