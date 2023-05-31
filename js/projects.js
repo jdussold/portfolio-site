@@ -15,20 +15,35 @@ function updateProjects() {
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => checkbox.value);
 
-  const filteredProjects = Array.from(projects).filter((project) => {
+  projects.forEach((project) => {
     const technologies = project.getAttribute("data-technologies").split(" ");
-    return (
+    const projectGroup = project.closest(".project-group");
+
+    if (
       selectedTechnologies.length === 0 ||
       selectedTechnologies.every((tech) => technologies.includes(tech))
-    );
+    ) {
+      project.style.display = "block";
+      projectGroup.style.display = "block";
+    } else {
+      project.style.display = "none";
+      projectGroup.style.display = Array.from(
+        projectGroup.querySelectorAll(".project")
+      ).every((p) => p.style.display === "none")
+        ? "none"
+        : "block";
+    }
   });
 
-  // Clear the existing projects
-  const projectsContainer = document.querySelector(".projects-container");
-  projectsContainer.innerHTML = "";
-
-  // Add the filtered projects back to the container
-  filteredProjects.forEach((project) => {
-    projectsContainer.appendChild(project);
+  // Update the color and brightness of the list item
+  checkboxes.forEach((checkbox) => {
+    const listItem = checkbox.closest("li");
+    if (checkbox.checked) {
+      listItem.style.color = "#FFFFFF";
+      listItem.style.filter = "brightness(300%)";
+    } else {
+      listItem.style.color = "";
+      listItem.style.filter = "";
+    }
   });
 }
