@@ -277,7 +277,7 @@ a:hover .linkedin-icon-default {
   align-items: center;
   width: 100%;
   height: 55%;
-  margin-top: 30px;
+  margin-top: 40px;
   padding: 30px;
   border-radius: 12px;
   background: linear-gradient(
@@ -302,6 +302,68 @@ a:hover .linkedin-icon-default {
   width: 100%;
   height: 100%;
   border-radius: 12px;
+}
+
+@media screen and (max-width: 999px) {
+  .game-container {
+    display: none;
+  }
+
+  .content {
+    margin: 0 5%;
+  }
+
+  .name {
+    width: 133px;
+    padding-right: 15px;
+  }
+
+  .home-container {
+    background-image: url("../img/background-gradient.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 68px;
+  }
+
+  h2 {
+    margin-bottom: 40%;
+    color: #43d9ad;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 1650px) {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content,
+  .game-container {
+    width: 80%;
+  }
+
+  .content {
+    margin-bottom: 30px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 10%;
 }
 
 /* about-me.html Specific Selectors */
