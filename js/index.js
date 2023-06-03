@@ -55,4 +55,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Call the function whenever the window is resized
   window.addEventListener("resize", updateCodeBlockText);
+
+  // Toggle responsive navbar
+  const toggleButton = document.getElementsByClassName(`toggle-button`)[0];
+  const navbarLinks = document.getElementsByClassName(`navbar-links`)[0];
+
+  toggleButton.addEventListener("click", () => {
+    console.log("Toggle button clicked");
+    navbarLinks.classList.toggle("active");
+  });
 });

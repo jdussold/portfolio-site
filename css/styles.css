@@ -22,24 +22,35 @@ body {
   overflow: auto;
 }
 
-nav {
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: #011627;
   border: 2px solid #1e2d3d;
-  border-left: none;
 }
 
-nav ul {
+.navbar-links {
+  display: flex;
+  flex-grow: 1;
+}
+
+.navbar-links ul {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%;
   border-left: 2px solid #1e2d3d;
+  flex-grow: 1;
+}
+
+.navbar-links ul li.spacer {
+  flex-grow: 1;
+  border-right: none;
 }
 
 nav ul li {
-  display: flex;
   align-items: center;
   border-right: 2px solid #1e2d3d;
   flex-grow: 0;
@@ -58,11 +69,6 @@ nav ul li a {
 nav ul li.active a {
   color: #ffffff;
   border-bottom: 2px solid #fea55f;
-}
-
-nav ul li.spacer {
-  border-right: none;
-  flex-grow: 1;
 }
 
 nav ul li:first-child a {
@@ -92,7 +98,27 @@ nav ul li a:focus {
   color: #607b96;
   font-size: 16px;
   margin-left: 25px;
-  padding-right: 100px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #607b96;
+  border-radius: 10px;
 }
 
 .container {
@@ -304,6 +330,77 @@ a:hover .linkedin-icon-default {
   border-radius: 12px;
 }
 
+@media (max-width: 600px) {
+  .toggle-button {
+    display: flex;
+  }
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: #011627;
+    border-bottom: 2px solid #1e2d3d;
+  }
+  .navbar-links ul li:hover,
+  .navbar-links ul li:focus {
+    background-color: #607b96;
+  }
+  .navbar-links ul li a:hover,
+  .navbar-links ul li a:focus {
+    border: none;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .navbar-links ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    border-left: none;
+  }
+  .navbar-links ul li {
+    width: 100%;
+    border-right: none;
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 0;
+  }
+  .navbar-links ul li.spacer {
+    display: none;
+  }
+  .navbar-links ul li a {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    padding-right: 0;
+    padding-left: 15px;
+  }
+  nav ul li:first-child a {
+    padding-left: 15px;
+  }
+  .navbar-links ul li.active a {
+    border-bottom: none;
+  }
+  .navbar-links ul li a:first-child {
+    border-top: 2px solid #1e2d3d;
+  }
+  nav ul li:last-child {
+    border-left: none;
+    border-bottom: none;
+  }
+  .navbar-links.active {
+    display: flex;
+  }
+  .home-container {
+    border-left: 2px solid #1e2d3d;
+    border-right: 2px solid #1e2d3d;
+  }
+}
+
 @media screen and (max-width: 999px) {
   .game-container {
     display: none;
@@ -316,6 +413,8 @@ a:hover .linkedin-icon-default {
   .name {
     width: 133px;
     padding-right: 15px;
+    padding-left: 0;
+    margin-left: 15px;
   }
 
   .home-container {
@@ -357,12 +456,6 @@ a:hover .linkedin-icon-default {
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-  margin-left: 5%;
-  margin-right: 5%;
   margin-top: 10%;
 }
 
