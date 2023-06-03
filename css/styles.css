@@ -128,7 +128,8 @@ nav ul li a:focus {
   border-radius: 10px;
 }
 
-.container {
+.container,
+.cp-container {
   flex: 1 0 auto;
   display: flex;
   justify-content: center;
@@ -452,6 +453,23 @@ a:hover .linkedin-icon-default {
     color: #43d9ad;
     font-size: 24px;
   }
+
+  .cp-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cp-left-section {
+    border-right: none;
+    border-bottom: 2px solid #1e2d3d;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .info-section {
+    margin-top: 20px;
+    border-top: 2px solid #1e2d3d;
+  }
 }
 
 @media screen and (max-width: 1650px) {
@@ -511,7 +529,8 @@ a:hover .linkedin-icon-default {
 .skills-icon,
 .education-icon,
 .briefcase-icon,
-.contact-info {
+.contact-info,
+.cp-contact-info {
   transition: all 0.3s;
 }
 
@@ -519,25 +538,29 @@ a:hover .linkedin-icon-default {
 .skills-icon:hover,
 .education-icon:hover,
 .briefcase-icon:hover,
-.contact-info:hover {
+.contact-info:hover,
+.cp-contact-info:hover {
   filter: brightness(300%);
   cursor: pointer;
 }
 
-.phone-info {
+.phone-info,
+.cp-phone-info {
   display: flex;
   margin: 20px;
   color: #607b96;
 }
 
-.phone-info img {
+.phone-info img,
+.cp-phone-info img {
   margin-right: 10px;
 }
 
 .top-section,
 .ls-top-section,
 .examples-top-section,
-.projects-top-section {
+.projects-top-section,
+.cp-top-section {
   display: flex;
   align-items: center;
   border-bottom: 2px solid #1e2d3d;
@@ -585,36 +608,42 @@ a:hover .linkedin-icon-default {
   cursor: pointer;
 }
 
-.contact-info-label {
+.contact-info-label,
+.cp-contact-info-label {
   padding: 10px 20px;
   border-top: 2px solid #1e2d3d;
   border-bottom: 2px solid #1e2d3d;
 }
 
-.contact-info {
+.contact-info,
+.cp-contact-info {
   display: flex;
   margin: 20px;
   color: #607b96;
 }
 
-.contact-info a {
+.contact-info a,
+.cp-contact-info a {
   text-decoration: none;
   cursor: pointer;
   color: #607b96;
 }
 
-.contact-info a:hover {
+.contact-info a:hover,
+.cp-contact-info a:hover {
   color: #ffffff;
 }
 
-.contact-info img {
+.contact-info img,
+.cp-contact-info img {
   margin-right: 10px;
   width: 20px;
   height: auto;
 }
 
 .info-section,
-.examples-section {
+.examples-section,
+.cp-examples-section {
   flex: 1 1 0;
   border-right: 2px solid #1e2d3d;
 }
@@ -1065,6 +1094,10 @@ a:hover .linkedin-icon-default {
     border-top: 2px solid #1e2d3d;
   }
 
+  .cp-top-section {
+    border-top: none;
+  }
+
   .examples-section {
     order: 3;
   }
@@ -1077,6 +1110,10 @@ a:hover .linkedin-icon-default {
   .contact-info-label,
   .contact-info,
   .phone-info {
+    display: none;
+  }
+
+  .cp-examples-section {
     display: none;
   }
 }
@@ -1421,4 +1458,59 @@ a:hover .linkedin-icon-default {
   white-space: pre;
   transform: translateY(1em);
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 999px) {
+  .game-container {
+    display: none;
+  }
+
+  .content {
+    margin: 0 5%;
+  }
+
+  .name {
+    width: 133px;
+    padding-right: 15px;
+    padding-left: 0;
+    margin-left: 15px;
+  }
+
+  .home-container {
+    background-image: url("../img/background-gradient.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .content p {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 68px;
+  }
+
+  h2 {
+    margin-bottom: 40%;
+    color: #43d9ad;
+    font-size: 24px;
+  }
+
+  .cp-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cp-left-section {
+    border-right: none;
+    border-bottom: 2px solid #1e2d3d;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .info-section {
+    margin-top: 20px;
+    border-top: 2px solid #1e2d3d;
+  }
 }

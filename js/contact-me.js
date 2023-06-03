@@ -100,3 +100,13 @@ messageInput.addEventListener("input", updateCodeExample);
 
 // Initial update of the code example
 updateCodeExample();
+
+// Toggle responsive navbar
+const toggleButton = document.querySelector(".toggle-button");
+const navbarLinks = document.querySelector(".navbar-links");
+const container = document.querySelector(".cp-container");
+
+toggleButton.addEventListener("click", () => {
+  navbarLinks.classList.toggle("active");
+  container.classList.toggle("blur-effect");
+});
