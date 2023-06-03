@@ -47,3 +47,13 @@ function updateProjects() {
     }
   });
 }
+
+// Toggle responsive navbar
+const toggleButton = document.querySelector(".toggle-button");
+const navbarLinks = document.querySelector(".navbar-links");
+const container = document.querySelector(".projects-page-container");
+
+toggleButton.addEventListener("click", () => {
+  navbarLinks.classList.toggle("active");
+  container.classList.toggle("blur-effect");
+});

@@ -57,11 +57,12 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", updateCodeBlockText);
 
   // Toggle responsive navbar
-  const toggleButton = document.getElementsByClassName(`toggle-button`)[0];
-  const navbarLinks = document.getElementsByClassName(`navbar-links`)[0];
+  const toggleButton = document.querySelector(".toggle-button");
+  const navbarLinks = document.querySelector(".navbar-links");
+  const container = document.querySelector(".home-container");
 
   toggleButton.addEventListener("click", () => {
-    console.log("Toggle button clicked");
     navbarLinks.classList.toggle("active");
+    container.classList.toggle("blur-effect");
   });
 });

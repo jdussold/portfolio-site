@@ -34,6 +34,7 @@ body {
 .navbar-links {
   display: flex;
   flex-grow: 1;
+  z-index: 2;
 }
 
 .navbar-links ul {
@@ -43,6 +44,7 @@ body {
   margin: 0;
   border-left: 2px solid #1e2d3d;
   flex-grow: 1;
+  z-index: 2;
 }
 
 .navbar-links ul li.spacer {
@@ -91,6 +93,11 @@ nav ul li a:hover,
 nav ul li a:focus {
   color: #ffffff;
   border-bottom: 2px solid #fea55f;
+}
+
+.blur-effect {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
 }
 
 .name {
@@ -400,6 +407,13 @@ a:hover .linkedin-icon-default {
     border-left: 2px solid #1e2d3d;
     border-right: 2px solid #1e2d3d;
   }
+  .skill-line-label {
+    visibility: hidden;
+  }
+  .education-examples-content {
+    padding-top: 4%;
+    padding-bottom: 4%;
+  }
 }
 
 @media screen and (max-width: 999px) {
@@ -425,7 +439,7 @@ a:hover .linkedin-icon-default {
     background-position: center;
   }
 
-  p {
+  .content p {
     font-size: 24px;
   }
 
@@ -521,6 +535,7 @@ a:hover .linkedin-icon-default {
 }
 
 .top-section,
+.ls-top-section,
 .examples-top-section,
 .projects-top-section {
   display: flex;
@@ -1037,6 +1052,35 @@ a:hover .linkedin-icon-default {
   }
 } */
 
+@media (max-width: 1400px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .info-section {
+    order: 2;
+  }
+
+  .top-section {
+    border-top: 2px solid #1e2d3d;
+  }
+
+  .examples-section {
+    order: 3;
+  }
+
+  .content-about-me {
+    order: 1;
+  }
+
+  .left-section1,
+  .contact-info-label,
+  .contact-info,
+  .phone-info {
+    display: none;
+  }
+}
+
 /* projects page styles */
 .projects-page-container {
   display: flex;
@@ -1250,6 +1294,53 @@ a:hover .linkedin-icon-default {
 
 .checkbox:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 799px) {
+  .projects-page-container {
+    flex-direction: column;
+  }
+
+  .technologies-filter-container {
+    order: 1;
+    border-right: none;
+    border-bottom: 2px solid #1e2d3d;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .projects-container {
+    order: 3;
+    width: 100%;
+  }
+
+  .projects-top-section .info-tab {
+    display: none;
+  }
+
+  .projects-title {
+    border-right: none;
+  }
+}
+
+@media (max-width: 475px) {
+  .project-description {
+    flex-direction: column;
+  }
+
+  .project-description p {
+    padding: 10px;
+  }
+
+  .project-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-buttons .view-project-button {
+    display: none;
+  }
 }
 
 /* Contact Page Styles */

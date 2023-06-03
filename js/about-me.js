@@ -557,4 +557,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return code;
   };
+
+  // Toggle responsive navbar
+  const toggleButton = document.querySelector(".toggle-button");
+  const navbarLinks = document.querySelector(".navbar-links");
+  const container = document.querySelector(".container");
+
+  toggleButton.addEventListener("click", () => {
+    navbarLinks.classList.toggle("active");
+    container.classList.toggle("blur-effect");
+  });
 });
