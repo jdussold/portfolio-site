@@ -125,6 +125,7 @@ nav ul li a:focus {
   flex: 1 0 auto;
   display: flex;
   justify-content: center;
+  border-left: 2px solid #1e2d3d;
 }
 
 .home-container {
@@ -520,7 +521,8 @@ a:hover .linkedin-icon-default {
 }
 
 .top-section,
-.examples-top-section {
+.examples-top-section,
+.projects-top-section {
   display: flex;
   align-items: center;
   border-bottom: 2px solid #1e2d3d;
@@ -1040,6 +1042,13 @@ a:hover .linkedin-icon-default {
   display: flex;
   flex-grow: 1;
   align-items: flex-start;
+  border-left: 2px solid #1e2d3d;
+  border-right: 2px solid #1e2d3d;
+}
+
+.projects-top-section {
+  border-left: 2px solid #1e2d3d;
+  border-right: 2px solid #1e2d3d;
 }
 
 .projects-title {

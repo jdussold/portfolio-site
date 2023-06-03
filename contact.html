@@ -1,75 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>John Dussold - Contact</title>
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
-  <div class="main">
-    <nav>
-      <ul>
-        <li class="name">john-dussold</li>
-        <li><a href="index.html">_hello</a></li>
-        <li><a href="about-me.html">_about-me</a></li>
-        <li><a href="projects.html"">_projects</a></li>
-        <li class="spacer"></li>
-        <li class="active"><a href="./contact.html">_contact-me</a></li>
-      </ul>
-    </nav>
-    <div class="container">
-      <div class="cp-left-section">
-        <div class="top-section">&#9662;&nbsp;<span id="info-tab-text">contact-info</span></div>
-        <div class="contact-info">
-          <img src="./img/email-icon.svg" alt="Email Icon">
-          <a href="mailto:jdussold@gmail.com">jdussold@gmail</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Dussold - Contact</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="main">
+      <nav class="navbar">
+        <div class="name">john-dussold</div>
+        <a href="#" class="toggle-button" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="index.html">_hello</a></li>
+            <li><a href="about-me.html">_about-me</a></li>
+            <li><a href="projects.html">_projects</a></li>
+            <li class="spacer"></li>
+            <li class="active"><a href="./contact.html">_contact-me</a></li>
+          </ul>
         </div>
-        <div class="phone-info">
-          <img src="./img/phone-icon.svg" alt="Phone Icon">
-          <p>(612) 321-1219</p>
-        </div> 
-        <div class="contact-info-label">&#9662;&nbsp;<span>find-me-also-on</span></div>
-        <div class="contact-info">
-          <img src="./img/link-icon.svg" alt="link icon">
-          <a href="https://www.youtube.com/channel/UCjLIqvJFssq8uGxUrmLO83g" target="_blank" rel="noopener">YouTube</a>
-        </div>
-        <div class="contact-info">
-          <img src="./img/link-icon.svg" alt="link icon">
-          <a href="https://www.instagram.com/dieselmation/" target="_blank" rel="noopener">Instagram</a>
-        </div>        
-      </div>
-      <div class="info-section">
-        <div class="top-section">
-          <div class="info-tab">
-            <span class="info-tab-text">contact</span>
-            <img src="./img/close-button.svg" class="close-button" alt="close button">
+      </nav>
+      <div class="container">
+        <div class="cp-left-section">
+          <div class="top-section">
+            &#9662;&nbsp;<span id="info-tab-text">contact-info</span>
           </div>
-          <div class="info-tab-spacer"></div>
-        </div>
-        <div class="cp-content">
-          <form id="contact-form" action="https://formspree.io/f/xayzaolg" method="POST" target="form-iframe">
-            <label for="name">_name:</label>
-            <input type="text" id="name" name="name" required>        
-            <label for="email">_email:</label>
-            <input type="email" id="email" name="email" required>        
-            <label for="message">_message:</label>
-            <textarea id="message" name="message" required></textarea>      
-            <button type="submit">submit-message</button>
-          </form>
-          <iframe name="form-iframe" class="hidden-iframe" title="Hidden Form Iframe"></iframe>
-          <div id="thank-you-section">
-            <h2>Thank you! &#x1F918;</h2>
-            <p>Your message has been sent.</p>
+          <div class="contact-info">
+            <img src="./img/email-icon.svg" alt="Email Icon" />
+            <a href="mailto:jdussold@gmail.com">jdussold@gmail</a>
           </div>
-        </div>        
-      </div>
-      <div class="examples-section">
-        <div class="examples-top-section"></div>
-        <div class="cp-examples-content">
-          <pre><code class="cp-message-code-example">
+          <div class="phone-info">
+            <img src="./img/phone-icon.svg" alt="Phone Icon" />
+            <p>(612) 321-1219</p>
+          </div>
+          <div class="contact-info-label">
+            &#9662;&nbsp;<span>find-me-also-on</span>
+          </div>
+          <div class="contact-info">
+            <img src="./img/link-icon.svg" alt="link icon" />
+            <a
+              href="https://www.youtube.com/channel/UCjLIqvJFssq8uGxUrmLO83g"
+              target="_blank"
+              rel="noopener"
+              >YouTube</a
+            >
+          </div>
+          <div class="contact-info">
+            <img src="./img/link-icon.svg" alt="link icon" />
+            <a
+              href="https://www.instagram.com/dieselmation/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+          </div>
+        </div>
+        <div class="info-section">
+          <div class="top-section">
+            <div class="info-tab">
+              <span class="info-tab-text">contact</span>
+              <img
+                src="./img/close-button.svg"
+                class="close-button"
+                alt="close button"
+              />
+            </div>
+            <div class="info-tab-spacer"></div>
+          </div>
+          <div class="cp-content">
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/xayzaolg"
+              method="POST"
+              target="form-iframe"
+            >
+              <label for="name">_name:</label>
+              <input type="text" id="name" name="name" required />
+              <label for="email">_email:</label>
+              <input type="email" id="email" name="email" required />
+              <label for="message">_message:</label>
+              <textarea id="message" name="message" required></textarea>
+              <button type="submit">submit-message</button>
+            </form>
+            <iframe
+              name="form-iframe"
+              class="hidden-iframe"
+              title="Hidden Form Iframe"
+            ></iframe>
+            <div id="thank-you-section">
+              <h2>Thank you! &#x1F918;</h2>
+              <p>Your message has been sent.</p>
+            </div>
+          </div>
+        </div>
+        <div class="examples-section">
+          <div class="examples-top-section"></div>
+          <div class="cp-examples-content">
+            <pre><code class="cp-message-code-example">
       const button = document.querySelector('#sendBtn');
       
       const message = {
@@ -83,35 +117,71 @@
         form.send(message);
       });
           </code></pre>
+          </div>
         </div>
-      </div>      
+      </div>
+      <footer>
+        <ul>
+          <li><span>Find me on:</span></li>
+          <li>
+            <a
+              href="https://twitter.com/DussoldJohn"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="./img/twitter-grey.svg"
+                class="twitter-icon-default"
+                alt="Twitter"
+              />
+              <img
+                src="./img/twitter-white.svg"
+                class="twitter-icon-hover"
+                alt="Twitter"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/john-dussold"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="./img/linkedin-grey.svg"
+                class="linkedin-icon-default"
+                alt="LinkedIn"
+              />
+              <img
+                src="./img/linkedin-white.svg"
+                class="linkedin-icon-hover"
+                alt="LinkedIn"
+              />
+            </a>
+          </li>
+          <li class="spacer"></li>
+          <li>
+            <a
+              href="https://github.com/jdussold"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>@jdussold</span>
+              <img
+                src="./img/github-grey.svg"
+                class="github-icon-default"
+                alt="Github"
+              />
+              <img
+                src="./img/github-white.svg"
+                class="github-icon-hover"
+                alt="Github"
+              />
+            </a>
+          </li>
+        </ul>
+      </footer>
     </div>
-    <footer>
-      <ul>
-        <li><span>Find me on:</span></li>
-        <li>
-          <a href="https://twitter.com/DussoldJohn" target="_blank" rel="noopener">
-            <img src="./img/twitter-grey.svg" class="twitter-icon-default" alt="Twitter">
-            <img src="./img/twitter-white.svg" class="twitter-icon-hover" alt="Twitter">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/john-dussold" target="_blank" rel="noopener">
-            <img src="./img/linkedin-grey.svg" class="linkedin-icon-default" alt="LinkedIn">
-            <img src="./img/linkedin-white.svg" class="linkedin-icon-hover" alt="LinkedIn">
-          </a>
-        </li>
-        <li class="spacer"></li>
-        <li>
-          <a href="https://github.com/jdussold" target="_blank" rel="noopener">
-            <span>@jdussold</span>
-            <img src="./img/github-grey.svg" class="github-icon-default" alt="Github">
-            <img src="./img/github-white.svg" class="github-icon-hover" alt="Github">
-          </a>
-        </li>
-      </ul>
-    </footer>
-  </div>  
-  <script src="./js/contact-me.js"></script>
-</body>
+    <script src="./js/contact-me.js"></script>
+  </body>
 </html>
