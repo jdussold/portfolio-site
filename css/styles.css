@@ -245,8 +245,7 @@ a:hover .linkedin-icon-default {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 5%;
 }
 
 .cursor {
@@ -301,8 +300,7 @@ a:hover .linkedin-icon-default {
   align-items: left;
   height: 80%;
   width: 45%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 5%;
 }
 
 .game {
@@ -342,6 +340,7 @@ a:hover .linkedin-icon-default {
   .toggle-button {
     display: flex;
   }
+
   .navbar-links {
     display: none;
     position: absolute;
@@ -350,18 +349,22 @@ a:hover .linkedin-icon-default {
     background-color: #011627;
     border-bottom: 2px solid #1e2d3d;
   }
+
   .navbar-links ul li:hover,
   .navbar-links ul li:focus {
     background-color: #607b96;
   }
+
   .navbar-links ul li a:hover,
   .navbar-links ul li a:focus {
     border: none;
   }
+
   .navbar {
     flex-direction: column;
     align-items: stretch;
   }
+
   .navbar-links ul {
     width: 100%;
     display: flex;
@@ -370,49 +373,57 @@ a:hover .linkedin-icon-default {
     margin: 0;
     border-left: none;
   }
+
   .navbar-links ul li {
     width: 100%;
     border-right: none;
     text-align: left;
-    padding-left: 0px;
-    padding-right: 0;
+    padding: 0;
   }
+
   .navbar-links ul li.spacer {
     display: none;
   }
+
   .navbar-links ul li a {
     display: flex;
     align-items: center;
     color: #ffffff;
-    padding-right: 0;
-    padding-left: 15px;
+    padding: 0 0 0 15px;
   }
+
   nav ul li:first-child a {
     padding-left: 15px;
   }
+
   .navbar-links ul li.active a {
     border-bottom: none;
   }
+
   .navbar-links ul li a:first-child {
     border-top: 2px solid #1e2d3d;
   }
+
   nav ul li:last-child {
     border-left: none;
     border-bottom: none;
   }
+
   .navbar-links.active {
     display: flex;
   }
+
   .home-container {
     border-left: 2px solid #1e2d3d;
     border-right: 2px solid #1e2d3d;
   }
+
   .skill-line-label {
     visibility: hidden;
   }
+
   .education-examples-content {
-    padding-top: 4%;
-    padding-bottom: 4%;
+    padding: 4% 0;
   }
 }
 
@@ -427,8 +438,7 @@ a:hover .linkedin-icon-default {
 
   .name {
     width: 133px;
-    padding-right: 15px;
-    padding-left: 0;
+    padding: 0 15px 0 0;
     margin-left: 15px;
   }
 
@@ -697,9 +707,8 @@ a:hover .linkedin-icon-default {
 }
 
 .code-content {
-  margin-left: 40px;
-  margin-bottom: 0;
-  padding: 0 0 0 20px;
+  margin: 0 0 0 40px;
+  padding: 0 20px 0 20px;
   color: #607b96;
   flex: 1;
   display: flex;
@@ -755,18 +764,22 @@ a:hover .linkedin-icon-default {
     transform: translateY(-100%);
     opacity: 0;
   }
+
   5% {
     transform: translateY(-30%);
     opacity: 1;
   }
+
   33% {
     transform: translateY(-30%);
     opacity: 1;
   }
+
   38% {
     transform: translateY(10%);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0%);
     opacity: 0;
@@ -888,6 +901,7 @@ a:hover .linkedin-icon-default {
 .description-visible {
   display: block;
 }
+
 .description-close-button {
   position: absolute;
   top: 15px;
@@ -916,6 +930,7 @@ a:hover .linkedin-icon-default {
   min-height: 70vh;
   overflow: hidden;
 }
+
 .skills-examples-content p {
   margin-bottom: 1.2em;
 }
@@ -1038,6 +1053,7 @@ a:hover .linkedin-icon-default {
     transform: translateX(-200%);
     opacity: 1;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -1303,8 +1319,7 @@ a:hover .linkedin-icon-default {
 .cp-content button {
   font: 14px "Fira Code", monospace;
   text-decoration: none;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 0 40px;
   padding: 10px 14px;
   font-size: 14px;
   font-weight: 400;
@@ -1470,8 +1485,7 @@ a:hover .linkedin-icon-default {
 
   .name {
     width: 133px;
-    padding-right: 15px;
-    padding-left: 0;
+    padding: 0 15px 0 0;
     margin-left: 15px;
   }
 
