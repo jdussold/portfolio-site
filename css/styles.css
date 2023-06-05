@@ -413,9 +413,6 @@ a:hover .linkedin-icon-default {
     padding-top: 4%;
     padding-bottom: 4%;
   }
-  #thank-you-section {
-    margin-bottom: 40%;
-  }
 }
 
 @media screen and (max-width: 999px) {
@@ -1116,6 +1113,11 @@ a:hover .linkedin-icon-default {
 
   .cp-examples-section {
     display: none;
+  }
+
+  #thank-you-section {
+    margin-top: 10% !important;
+    margin-bottom: 10%;
   }
 }
 
