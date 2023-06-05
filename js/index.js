@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const comment2 = document.createElement("span");
   comment2.className = "comment";
   comment2.textContent =
-    " Don't forget to play the game and see it on my Github";
+    " Don't forget to play the game and see it on my Github.";
   const githubLink = codeBlock.querySelector("a");
 
   function updateCodeBlockText() {
