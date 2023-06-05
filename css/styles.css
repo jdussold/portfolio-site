@@ -374,8 +374,7 @@ a:hover .linkedin-icon-default {
     width: 100%;
     border-right: none;
     text-align: left;
-    padding-left: 0px;
-    padding-right: 0;
+    padding: 10px 0 0 0;
   }
   .navbar-links ul li.spacer {
     display: none;
