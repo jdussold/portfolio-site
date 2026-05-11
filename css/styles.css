@@ -588,6 +588,10 @@ a:hover .linkedin-icon-default {
 .skills-icon:hover,
 .education-icon:hover,
 .briefcase-icon:hover,
+.personal-info-icon.active,
+.skills-icon.active,
+.education-icon.active,
+.briefcase-icon.active,
 .contact-info:hover,
 .cp-contact-info:hover {
   filter: brightness(300%);
@@ -641,6 +645,15 @@ a:hover .linkedin-icon-default {
 
 .folder-item img {
   margin-right: 10px;
+}
+
+.collapsed-folder-icon {
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.folder-item.active .collapsed-folder-icon {
+  transform: rotate(90deg);
+  filter: brightness(300%);
 }
 
 #bio,
@@ -929,6 +942,9 @@ a:hover .linkedin-icon-default {
   border: var(--border-default);
   padding: 20px;
   font-size: 14px;
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-dim);
+  white-space: pre-wrap;
   transition: all 0.3s;
 }
 
@@ -943,6 +959,10 @@ a:hover .linkedin-icon-default {
   padding-top: 10px;
 }
 
+.description-section.expanded {
+  border-top: var(--border-default);
+}
+
 .description {
   display: none;
   margin-bottom: 20px;
@@ -952,9 +972,10 @@ a:hover .linkedin-icon-default {
   padding-right: 20px;
 }
 
-.description-visible {
+.description-section.expanded .description {
   display: block;
 }
+
 .description-close-button {
   position: absolute;
   top: 15px;
@@ -964,8 +985,20 @@ a:hover .linkedin-icon-default {
   transition: filter 0.3s;
 }
 
+.description-section.expanded .description-close-button {
+  display: block;
+}
+
 .description-close-button:hover {
   filter: brightness(300%);
+}
+
+.description-icon.active {
+  filter: brightness(300%);
+}
+
+.details-text.active {
+  color: var(--color-text);
 }
 
 .animated-text {

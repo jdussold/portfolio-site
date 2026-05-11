@@ -137,59 +137,24 @@ const createCarousel = () => {
   });
 };
 
+const iconsByFolder = {
+  bio: personalInfoIcon,
+  skills: skillsIcon,
+  education: educationIcon,
+  resume: briefcaseIcon,
+};
+
 const selectFolderItem = (folderId) => {
-  const folderItems = document.getElementsByClassName("folder-item");
   const folderItem = document.getElementById(folderId);
-  if (folderItem) {
-    Array.from(folderItems).forEach((item) => {
-      item.classList.remove("active");
-    });
-    folderItem.classList.add("active");
+  if (!folderItem) return;
 
-    const personalInfoIcon = document.querySelector(".personal-info-icon");
-    const skillsIcon = document.querySelector(".skills-icon");
-    const educationIcon = document.querySelector(".education-icon");
-    const briefcaseIcon = document.querySelector(".briefcase-icon");
+  Array.from(document.getElementsByClassName("folder-item")).forEach((item) => {
+    item.classList.remove("active");
+  });
+  folderItem.classList.add("active");
 
-    personalInfoIcon.src = "./img/personal-info.svg";
-    skillsIcon.src = "./img/skills-icon.svg";
-    educationIcon.src = "./img/education-icon.svg";
-    briefcaseIcon.src = "./img/briefcase-icon.svg";
-
-    switch (folderId) {
-      case "bio":
-        personalInfoIcon.src = "./img/personal-info-white.svg";
-        break;
-      case "skills":
-        skillsIcon.src = "./img/skills-icon-white.svg";
-        break;
-      case "education":
-        educationIcon.src = "./img/education-icon-white.svg";
-        break;
-      case "resume":
-        briefcaseIcon.src = "./img/briefcase-icon-white.svg";
-        break;
-      default:
-        break;
-    }
-
-    const collapsedFolderIcons = document.querySelectorAll(
-      ".collapsed-folder-icon"
-    );
-    collapsedFolderIcons.forEach((icon) => {
-      icon.style.transform = "rotate(0deg)";
-      icon.style.filter = "brightness(100%)";
-      icon.style.transition = "transform 0.3s, filter 0.3s";
-    });
-
-    const activeCollapsedFolderIcon = folderItem.querySelector(
-      ".collapsed-folder-icon"
-    );
-    if (activeCollapsedFolderIcon) {
-      activeCollapsedFolderIcon.style.transform = "rotate(90deg)";
-      activeCollapsedFolderIcon.style.filter = "brightness(300%)";
-    }
-  }
+  Object.values(iconsByFolder).forEach((icon) => icon.classList.remove("active"));
+  iconsByFolder[folderId]?.classList.add("active");
 };
 
 const generateLineNumbers = () => {
@@ -394,23 +359,13 @@ const attachBioEventListeners = (
   const detailsText = document.getElementById(detailsTextId);
   const closeButtonElement = document.getElementById(closeButtonElementId);
 
+  const descriptionSection = descriptionElement.parentElement;
   const toggleDescription = () => {
-    const isDescriptionVisible = descriptionElement.classList.contains(
-      "description-visible"
-    );
-    descriptionElement.classList.toggle("description-visible");
-    descriptionIcon.src = isDescriptionVisible
-      ? "./img/description-icon.svg"
-      : "./img/description-icon-white.svg";
-    detailsText.textContent = isDescriptionVisible ? "details" : "hide";
-    detailsText.style.color = isDescriptionVisible ? "" : "white";
-    closeButtonElement.style.display = isDescriptionVisible
-      ? "none"
-      : "block";
-    const descriptionSection = descriptionElement.parentElement;
-    descriptionSection.style.borderTop = isDescriptionVisible
-      ? ""
-      : "2px solid #1e2d3d";
+    const expanded = !descriptionSection.classList.contains("expanded");
+    descriptionSection.classList.toggle("expanded", expanded);
+    descriptionIcon.classList.toggle("active", expanded);
+    detailsText.classList.toggle("active", expanded);
+    detailsText.textContent = expanded ? "hide" : "details";
   };
 
   descriptionIcon.addEventListener("click", toggleDescription);
@@ -456,9 +411,6 @@ const gistPromises = gistIdentifiers.map((gistIdentifier, index) =>
 
       const preElement = document.createElement("pre");
       preElement.innerHTML = syntaxHighlight(escapeHtml(gistContent));
-      preElement.style.backgroundColor = "#001221";
-      preElement.style.color = "#607B96";
-      preElement.style.whiteSpace = "pre-wrap";
 
       const detailsElement = document.getElementById(
         `gist${index + 1}-details`
