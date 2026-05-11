@@ -575,27 +575,42 @@ a:hover .linkedin-icon-default {
   margin-top: 50px;
 }
 
-.personal-info-icon,
-.skills-icon,
-.education-icon,
-.briefcase-icon,
 .contact-info,
 .cp-contact-info {
   transition: var(--transition-default);
 }
 
-.personal-info-icon:hover,
-.skills-icon:hover,
-.education-icon:hover,
-.briefcase-icon:hover,
-.personal-info-icon.active,
-.skills-icon.active,
-.education-icon.active,
-.briefcase-icon.active,
 .contact-info:hover,
 .cp-contact-info:hover {
   filter: brightness(300%);
   cursor: pointer;
+}
+
+.icon-button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button svg {
+  display: block;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible,
+.icon-button.active {
+  color: var(--color-text);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .phone-info,
@@ -675,16 +690,6 @@ a:hover .linkedin-icon-default {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   color: var(--color-text);
-}
-
-.personal-info-icon:focus-visible,
-.skills-icon:focus-visible,
-.education-icon:focus-visible,
-.briefcase-icon:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
-  filter: brightness(300%);
-  cursor: pointer;
 }
 
 .contact-info-label,

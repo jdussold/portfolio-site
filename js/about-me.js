@@ -36,45 +36,25 @@ Array.from(folderItems).forEach((item) => {
   activateOnKey(item);
 });
 
-const personalInfoIcon = document.querySelector(".personal-info-icon");
-personalInfoIcon.addEventListener("click", () => {
-  if (initialState !== null) {
-    updateContent(initialState.folderId);
-    selectFolderItem(initialState.folderId);
-  } else {
-    const folderId = "bio";
-    updateContent(folderId);
-    selectFolderItem(folderId);
-  }
-});
-activateOnKey(personalInfoIcon);
+const iconButtons = Array.from(
+  document.querySelectorAll(".icon-button[data-folder]")
+);
+const bioButton = iconButtons.find((btn) => btn.dataset.folder === "bio");
 
-const skillsIcon = document.querySelector(".skills-icon");
-skillsIcon.addEventListener("click", () => {
-  const folderId = "skills";
-  updateContent(folderId);
-  selectFolderItem(folderId);
-  generateLineNumbers();
+iconButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const folderId = btn.dataset.folder;
+    if (folderId === "bio") {
+      const target = initialState !== null ? initialState.folderId : "bio";
+      updateContent(target);
+      selectFolderItem(target);
+    } else {
+      updateContent(folderId);
+      selectFolderItem(folderId);
+      generateLineNumbers();
+    }
+  });
 });
-activateOnKey(skillsIcon);
-
-const educationIcon = document.querySelector(".education-icon");
-educationIcon.addEventListener("click", () => {
-  const folderId = "education";
-  updateContent(folderId);
-  selectFolderItem(folderId);
-  generateLineNumbers();
-});
-activateOnKey(educationIcon);
-
-const briefcaseIcon = document.querySelector(".briefcase-icon");
-briefcaseIcon.addEventListener("click", () => {
-  const folderId = "resume";
-  updateContent(folderId);
-  selectFolderItem(folderId);
-  generateLineNumbers();
-});
-activateOnKey(briefcaseIcon);
 
 const updateContent = (folderId) => {
   const infoTabText = document.getElementById("info-tab-text");
@@ -137,13 +117,6 @@ const createCarousel = () => {
   });
 };
 
-const iconsByFolder = {
-  bio: personalInfoIcon,
-  skills: skillsIcon,
-  education: educationIcon,
-  resume: briefcaseIcon,
-};
-
 const selectFolderItem = (folderId) => {
   const folderItem = document.getElementById(folderId);
   if (!folderItem) return;
@@ -153,8 +126,9 @@ const selectFolderItem = (folderId) => {
   });
   folderItem.classList.add("active");
 
-  Object.values(iconsByFolder).forEach((icon) => icon.classList.remove("active"));
-  iconsByFolder[folderId]?.classList.add("active");
+  iconButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.folder === folderId);
+  });
 };
 
 const generateLineNumbers = () => {
@@ -459,11 +433,11 @@ const gistPromises = gistIdentifiers.map((gistIdentifier, index) =>
 
 Promise.all(gistPromises)
   .then(() => {
-    personalInfoIcon.click();
+    bioButton.click();
   })
   .catch((err) => {
     console.error("Failed to load one or more gists:", err);
-    personalInfoIcon.click();
+    bioButton.click();
   });
 
 const syntaxHighlight = (code) => {
