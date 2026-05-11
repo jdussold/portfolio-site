@@ -65,7 +65,9 @@ textarea {
 }
 
 .navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   width: 100%;
@@ -217,6 +219,9 @@ h2 {
 }
 
 footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
   flex-shrink: 0;
   width: 100%;
   background-color: var(--color-bg);
