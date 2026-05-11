@@ -726,6 +726,8 @@ footer ul li a:focus .social-icon {
 .cp-examples-section {
   flex: 1 1 0;
   border-right: var(--border-default);
+  display: flex;
+  flex-direction: column;
 }
 
 .info-tab {
@@ -805,7 +807,7 @@ footer ul li a:focus .social-icon {
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  height: 40%;
+  flex: 1;
   overflow: hidden;
 }
 
@@ -838,19 +840,19 @@ footer ul li a:focus .social-icon {
     opacity: 0;
   }
   5% {
-    transform: translateY(-30%);
+    transform: translateY(0);
     opacity: 1;
   }
   33% {
-    transform: translateY(-30%);
+    transform: translateY(0);
     opacity: 1;
   }
   38% {
-    transform: translateY(10%);
+    transform: translateY(100%);
     opacity: 0;
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(100%);
     opacity: 0;
   }
 }
