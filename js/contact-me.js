@@ -1,4 +1,4 @@
-import { escapeHtml } from "./utils.js";
+import { escapeHtml, debounce } from "./utils.js";
 
 // Form submission / thank-you toggle
 const cpContent = document.querySelector(".cp-content");
@@ -66,9 +66,10 @@ function updateCodeExample() {
   generateLineNumbers();
 }
 
-nameInput.addEventListener("input", updateCodeExample);
-emailInput.addEventListener("input", updateCodeExample);
-messageInput.addEventListener("input", updateCodeExample);
+const debouncedUpdate = debounce(updateCodeExample, 100);
+nameInput.addEventListener("input", debouncedUpdate);
+emailInput.addEventListener("input", debouncedUpdate);
+messageInput.addEventListener("input", debouncedUpdate);
 
 updateCodeExample();
 

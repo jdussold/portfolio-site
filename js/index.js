@@ -1,3 +1,5 @@
+import { debounce } from "./utils.js";
+
 // Typing effect
 const typingDelay = 100;
 const cursorDelay = 1200;
@@ -48,7 +50,7 @@ function updateCodeBlockText() {
 }
 
 updateCodeBlockText();
-window.addEventListener("resize", updateCodeBlockText);
+window.addEventListener("resize", debounce(updateCodeBlockText, 150));
 
 // Mobile menu toggle
 const toggleButton = document.querySelector(".toggle-button");

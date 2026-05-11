@@ -1,32 +1,41 @@
-const checkboxes = document.querySelectorAll(".checkbox");
-const projects = document.querySelectorAll(".project");
+const checkboxes = Array.from(document.querySelectorAll(".checkbox"));
+const projectGroups = Array.from(document.querySelectorAll(".project-group")).map(
+  (group) => ({
+    group,
+    projects: Array.from(group.querySelectorAll(".project")).map((project) => ({
+      project,
+      technologies: project.getAttribute("data-technologies").split(" "),
+    })),
+  })
+);
+const checkboxItems = checkboxes.map((checkbox) => ({
+  checkbox,
+  listItem: checkbox.closest("li"),
+}));
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", updateProjects);
 });
 
 function updateProjects() {
-  const selectedTechnologies = Array.from(checkboxes)
+  const selectedTechnologies = checkboxes
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => checkbox.value);
 
-  projects.forEach((project) => {
-    const technologies = project.getAttribute("data-technologies").split(" ");
-    const matches =
-      selectedTechnologies.length === 0 ||
-      selectedTechnologies.every((tech) => technologies.includes(tech));
-    project.classList.toggle("is-hidden", !matches);
+  projectGroups.forEach(({ group, projects }) => {
+    let visibleCount = 0;
+    projects.forEach(({ project, technologies }) => {
+      const matches =
+        selectedTechnologies.length === 0 ||
+        selectedTechnologies.every((tech) => technologies.includes(tech));
+      project.classList.toggle("is-hidden", !matches);
+      if (matches) visibleCount++;
+    });
+    group.classList.toggle("is-hidden", visibleCount === 0);
   });
 
-  document.querySelectorAll(".project-group").forEach((group) => {
-    const allHidden = Array.from(group.querySelectorAll(".project")).every(
-      (p) => p.classList.contains("is-hidden")
-    );
-    group.classList.toggle("is-hidden", allHidden);
-  });
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.closest("li").classList.toggle("selected", checkbox.checked);
+  checkboxItems.forEach(({ checkbox, listItem }) => {
+    listItem.classList.toggle("selected", checkbox.checked);
   });
 }
 
