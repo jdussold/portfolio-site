@@ -448,9 +448,9 @@ const syntaxHighlight = (code) => {
     { regex: /\b(const)\b/g, style: "color: #FEA55F;" },
     { regex: /\b(genres|movieLists)\b/g, style: "color: #4D5BCE;" },
     { regex: /\b(indexOf|toArray)\b/g, style: "color: #C98BDF;" },
-    { regex: /'smooth'/g, style: "color: #43D9AD;" },
+    { regex: /&#39;smooth&#39;/g, style: "color: #43D9AD;" },
     {
-      regex: /"https:\/\/my-flix-db-jd.herokuapp.com\/movies"/g,
+      regex: /&quot;https:\/\/my-flix-db-jd.herokuapp.com\/movies&quot;/g,
       style: "color: #43D9AD;",
     },
     { regex: /\b(fetch)\b/g, style: "color: #C98BDF;" },
@@ -468,8 +468,8 @@ const syntaxHighlight = (code) => {
     },
     { regex: /\b(setMovies|setLoading)\b/g, style: "color: #C98BDF;" },
     { regex: /\b(catch|alert)\b/g, style: "color: #C98BDF;" },
+    { regex: /&quot;An error occurred: &quot; \+/g, style: "color: #4D5BCE;" },
     { regex: /\+/g, style: "color: #4D5BCE;" },
-    { regex: /"An error occurred: " \+/g, style: "color: #4D5BCE;" },
   ];
 
   tokens.forEach((token) => {
