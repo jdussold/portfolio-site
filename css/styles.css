@@ -1243,23 +1243,24 @@ footer ul li a:focus .social-icon {
   color: var(--color-text);
 }
 
+.technologies-filter-container li .technology-icon,
+.technologies-filter-container li .react-native-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
+}
+
 .technologies-filter-container li:hover .technology-icon,
 .technologies-filter-container li:hover .react-native-icon,
 .technologies-filter-container li.selected .technology-icon,
 .technologies-filter-container li.selected .react-native-icon {
-  filter: brightness(150%);
+  color: var(--color-text);
 }
 
 .technologies-filter-container li.selected {
   color: var(--color-text);
-}
-
-.technologies-filter-container li img:first-child {
-  margin-right: 30px;
-}
-
-.technologies-filter-container li img:last-child {
-  margin-right: 15px;
 }
 
 .checkbox {
