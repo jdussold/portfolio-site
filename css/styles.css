@@ -232,6 +232,7 @@ footer ul li {
   font-size: 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
   border-left: var(--border-default);
 }
@@ -243,12 +244,12 @@ footer ul li a {
   text-align: center;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 footer ul li a .social-icon {
   width: 16px;
   height: 16px;
-  margin-left: 10px;
   color: var(--color-text-dim);
   transition: color 0.3s;
 }
@@ -641,7 +642,8 @@ footer ul li a:focus .social-icon {
   margin-bottom: 10px;
 }
 
-.folder-item img {
+.folder-item img,
+.folder-item svg {
   margin-right: 10px;
 }
 
