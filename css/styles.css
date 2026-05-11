@@ -347,6 +347,7 @@ footer ul li a:focus .social-icon {
 }
 
 .game {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -362,6 +363,40 @@ footer ul li a:focus .social-icon {
   );
   box-shadow: 10px 10px 30px rgba(77, 91, 206, 0.6),
     -10px -10px 30px rgba(67, 217, 173, 0.6);
+  animation: game-breathe 4s ease-in-out infinite;
+}
+
+.game::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid var(--color-mint);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.game:hover::after {
+  opacity: 1;
+}
+
+@keyframes game-breathe {
+  0%,
+  100% {
+    box-shadow: 10px 10px 30px rgba(77, 91, 206, 0.6),
+      -10px -10px 30px rgba(67, 217, 173, 0.6);
+  }
+  50% {
+    box-shadow: 12px 12px 32px rgba(77, 91, 206, 0.6),
+      -12px -12px 32px rgba(67, 217, 173, 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game {
+    animation: none;
+  }
 }
 
 .iframe-container {
