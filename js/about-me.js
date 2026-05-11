@@ -12,7 +12,6 @@ const activateOnKey = (el) => {
   });
 };
 
-// Generate line numbers
 const lineNumbers = document.querySelector(".line-numbers");
 for (let i = 1; i <= totalLines; i++) {
   const span = document.createElement("span");
@@ -20,7 +19,6 @@ for (let i = 1; i <= totalLines; i++) {
   lineNumbers.appendChild(span);
 }
 
-// Handle folder-item click event
 const folderItems = document.getElementsByClassName("folder-item");
 Array.from(folderItems).forEach((item) => {
   item.addEventListener("click", () => {
@@ -38,7 +36,6 @@ Array.from(folderItems).forEach((item) => {
   activateOnKey(item);
 });
 
-// Handle icon click events
 const personalInfoIcon = document.querySelector(".personal-info-icon");
 personalInfoIcon.addEventListener("click", () => {
   if (initialState !== null) {
@@ -176,7 +173,6 @@ const selectFolderItem = (folderId) => {
         break;
     }
 
-    // Function to rotate chevron next to folder icons
     const collapsedFolderIcons = document.querySelectorAll(
       ".collapsed-folder-icon"
     );
@@ -386,7 +382,7 @@ const getResumeExamplesContent = () => {
   `;
 };
 
-// Function to reattach event listeners to gist buttons when content is reloaded
+// Re-attached on each return to bio because innerHTML restore replaces the DOM nodes
 const attachBioEventListeners = (
   descriptionElementId,
   descriptionIconId,
@@ -422,7 +418,6 @@ const attachBioEventListeners = (
   closeButtonElement.addEventListener("click", toggleDescription);
 };
 
-// Fetch Gist details using fetch API
 const gistIdentifiers = [
   "870dca52f4b871f9ccdf4f6a54aa2668",
   "414edff2659a9375f09e14fbacfea9d9",
@@ -519,7 +514,6 @@ Promise.all(gistPromises)
     personalInfoIcon.click();
   });
 
-// Function to add specific syntax highlighting to displayed gists
 const syntaxHighlight = (code) => {
   const tokens = [
     { regex: /\b(scrollLeft|scrollRight)\b/g, style: "color: #C98BDF;" },
@@ -561,7 +555,7 @@ const syntaxHighlight = (code) => {
   return code;
 };
 
-// Toggle responsive navbar
+// Mobile menu toggle
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
 const container = document.querySelector(".container");

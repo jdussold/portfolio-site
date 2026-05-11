@@ -18,11 +18,9 @@ function typeNextCharacter() {
   }
 }
 
-setTimeout(() => {
-  typeNextCharacter();
-}, 1000); // 1-second delay before starting the typing effect
+setTimeout(typeNextCharacter, 1000);
 
-// Code for dynamic text change
+// Mobile-width banner swap
 const codeBlock = document.querySelector(".code-block");
 const comment1 = codeBlock.children[0];
 const comment2 = document.createElement("span");
@@ -49,13 +47,10 @@ function updateCodeBlockText() {
   }
 }
 
-// Call the function initially to set correct text
 updateCodeBlockText();
-
-// Call the function whenever the window is resized
 window.addEventListener("resize", updateCodeBlockText);
 
-// Toggle responsive navbar
+// Mobile menu toggle
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
 const container = document.querySelector(".home-container");

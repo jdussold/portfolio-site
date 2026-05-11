@@ -1,15 +1,10 @@
-// Get all the checkboxes
 const checkboxes = document.querySelectorAll(".checkbox");
-
-// Get all the project elements
 const projects = document.querySelectorAll(".project");
 
-// Add event listeners to the checkboxes
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", updateProjects);
 });
 
-// Function to update the displayed projects
 function updateProjects() {
   const selectedTechnologies = Array.from(checkboxes)
     .filter((checkbox) => checkbox.checked)
@@ -40,7 +35,7 @@ function updateProjects() {
   });
 }
 
-// Toggle responsive navbar
+// Mobile menu toggle
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
 const container = document.querySelector(".projects-page-container");

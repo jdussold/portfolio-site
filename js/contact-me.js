@@ -1,29 +1,20 @@
 import { escapeHtml } from "./utils.js";
 
-// ----------Toggle the form----------------------
-
-// Get references to the form and thank you section
+// Form submission / thank-you toggle
 const form = document.getElementById("contact-form");
 const thankYouSection = document.getElementById("thank-you-section");
 
-// Hide the thank you section initially
 thankYouSection.style.display = "none";
 
-// Handle form submission
 form.addEventListener("submit", function (event) {
-  //event.preventDefault(); // Prevent form submission
-
-  // Hide the form
   form.style.display = "none";
 
-  // Show the thank you section
   thankYouSection.style.display = "flex";
   thankYouSection.style.flexDirection = "column";
   thankYouSection.style.justifyContent = "center";
   thankYouSection.style.alignItems = "center";
   thankYouSection.style.marginTop = "40%";
 
-  // Adjust the spacing between heading and paragraph
   const heading = thankYouSection.querySelector("h2");
   const paragraph = thankYouSection.querySelector("p");
   heading.style.marginBottom = "10px";
@@ -32,14 +23,10 @@ form.addEventListener("submit", function (event) {
   paragraph.style.marginTop = "0";
 });
 
-// ---------Message form code preview--------------
-
-// Get the form fields
+// Live code preview mirroring form input
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const messageInput = document.getElementById("message");
-
-// Get the code example element
 const codeExample = document.querySelector(".cp-message-code-example");
 
 function generateLineNumbers() {
@@ -59,7 +46,6 @@ function generateLineNumbers() {
   document.querySelector(".cp-message-code-example").prepend(lineNumberElement);
 }
 
-// Function to update the code example
 function updateCodeExample() {
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString("en-US", {
@@ -88,22 +74,20 @@ function updateCodeExample() {
   const lineNumberElement = document.querySelector(
     ".cp-message-code-example .line-numbers"
   );
-  if (lineNumberElement) lineNumberElement.remove(); // Remove previous line numbers
+  if (lineNumberElement) lineNumberElement.remove();
 
   codeExample.innerHTML = code;
 
   generateLineNumbers();
 }
 
-// Event listeners for input fields
 nameInput.addEventListener("input", updateCodeExample);
 emailInput.addEventListener("input", updateCodeExample);
 messageInput.addEventListener("input", updateCodeExample);
 
-// Initial update of the code example
 updateCodeExample();
 
-// Toggle responsive navbar
+// Mobile menu toggle
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
 const container = document.querySelector(".cp-container");
