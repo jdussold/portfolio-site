@@ -1,3 +1,5 @@
+import { escapeHtml } from "./utils.js";
+
 // ----------Toggle the form----------------------
 
 // Get references to the form and thank you section
@@ -69,14 +71,14 @@ function updateCodeExample() {
   const code = `
 <pre><code>
 <span style="color: #C98BDF;">const</span> <span style="color: #4453b9;">button</span> <span style="color: #C98BDF;">=</span> <span style="color: #4453b9;">document</span>.<span style="color: #4453b9;">querySelector</span>(<span style="color: #FEA55F;">'#sendBtn'</span>);
-    
+
 <span style="color: #C98BDF;">const</span> <span style="color: #4453b9;">message</span> <span style="color: #C98BDF;">=</span> {
-  <span style="color: #4453b9;">name</span>: <span style="color: #FEA55F;">"${nameInput.value}"</span>,
-  <span style="color: #4453b9;">email</span>: <span style="color: #FEA55F;">"${emailInput.value}"</span>,
-  <span style="color: #4453b9;">message</span>: <span style="color: #FEA55F;">"${messageInput.value}"</span>,
-  <span style="color: #607b96;">date</span>: <span style="color: #FEA55F;">"${formattedDate}"</span>,
+  <span style="color: #4453b9;">name</span>: <span style="color: #FEA55F;">"${escapeHtml(nameInput.value)}"</span>,
+  <span style="color: #4453b9;">email</span>: <span style="color: #FEA55F;">"${escapeHtml(emailInput.value)}"</span>,
+  <span style="color: #4453b9;">message</span>: <span style="color: #FEA55F;">"${escapeHtml(messageInput.value)}"</span>,
+  <span style="color: #607b96;">date</span>: <span style="color: #FEA55F;">"${escapeHtml(formattedDate)}"</span>,
 };
-    
+
 <span style="color: #4453b9;">button.addEventListener</span>(<span style="color: #FEA55F;">'click'</span>, <span style="color: #C98BDF;">()</span> <span style="color: #C98BDF;">=></span> {
   <span style="color: #4453b9;">form</span>.<span style="color: #4453b9;">send</span>(<span style="color: #4453b9;">message</span>);
 });

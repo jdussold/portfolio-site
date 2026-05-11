@@ -1,3 +1,5 @@
+import { escapeHtml } from "./utils.js";
+
 let initialState = null;
 const totalLines = 120;
 
@@ -464,7 +466,7 @@ gistIdentifiers.forEach((gistIdentifier, index) => {
       });
 
       const preElement = document.createElement("pre");
-      preElement.innerHTML = syntaxHighlight(gistContent);
+      preElement.innerHTML = syntaxHighlight(escapeHtml(gistContent));
       preElement.style.backgroundColor = "#001221";
       preElement.style.color = "#607B96";
       preElement.style.whiteSpace = "pre-wrap";
@@ -475,10 +477,10 @@ gistIdentifiers.forEach((gistIdentifier, index) => {
       detailsElement.innerHTML = `
         <div class="left-section">
           <div class="avatar-section">
-            <img src="${avatarUrl}" alt="Avatar" class="avatar">
+            <img src="${escapeHtml(avatarUrl)}" alt="Avatar" class="avatar">
             <div class="username-section">
-              <span class="username">@${username}</span>
-              <p class="created-at">Created on ${createdDate}</p>
+              <span class="username">@${escapeHtml(username)}</span>
+              <p class="created-at">Created on ${escapeHtml(createdDate)}</p>
             </div>
           </div>
         </div>
