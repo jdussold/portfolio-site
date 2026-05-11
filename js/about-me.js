@@ -79,17 +79,6 @@ briefcaseIcon.addEventListener("click", () => {
 });
 activateOnKey(briefcaseIcon);
 
-// Simulate a mouse click on the personal-info-icon after a delay
-setTimeout(() => {
-  personalInfoIcon.dispatchEvent(
-    new MouseEvent("click", {
-      bubbles: true,
-      cancelable: true,
-      view: window,
-    })
-  );
-}, 500);
-
 const updateContent = (folderId) => {
   const infoTabText = document.getElementById("info-tab-text");
   const infoSection = document.querySelector(".info-section");
@@ -439,9 +428,14 @@ const gistIdentifiers = [
   "414edff2659a9375f09e14fbacfea9d9",
 ];
 
-gistIdentifiers.forEach((gistIdentifier, index) => {
+const gistPromises = gistIdentifiers.map((gistIdentifier, index) =>
   fetch(`https://api.github.com/gists/${gistIdentifier}`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Gist ${gistIdentifier} HTTP ${response.status}`);
+      }
+      return response.json();
+    })
     .then((data) => {
       const files = data.files;
       let gistContent = "";
@@ -513,23 +507,17 @@ gistIdentifiers.forEach((gistIdentifier, index) => {
       closeButtonElement.id = `gist${index + 1}-close-button`;
       closeButtonElement.classList.add("description-close-button");
       descriptionElement.appendChild(closeButtonElement);
+    })
+);
 
-      if (index + 1 === 1) {
-        attachBioEventListeners(
-          "gist1-description",
-          "gist1-description-icon",
-          "gist1-details-text",
-          "gist1-close-button"
-        );
-        attachBioEventListeners(
-          "gist2-description",
-          "gist2-description-icon",
-          "gist2-details-text",
-          "gist2-close-button"
-        );
-      }
-    });
-});
+Promise.all(gistPromises)
+  .then(() => {
+    personalInfoIcon.click();
+  })
+  .catch((err) => {
+    console.error("Failed to load one or more gists:", err);
+    personalInfoIcon.click();
+  });
 
 // Function to add specific syntax highlighting to displayed gists
 const syntaxHighlight = (code) => {
