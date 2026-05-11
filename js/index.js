@@ -62,6 +62,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".home-container");
 
   toggleButton.addEventListener("click", () => {
+    const expanded = toggleButton.getAttribute("aria-expanded") === "true";
+    toggleButton.setAttribute("aria-expanded", String(!expanded));
     navbarLinks.classList.toggle("active");
     container.classList.toggle("blur-effect");
   });
