@@ -1192,11 +1192,6 @@ footer ul li a:focus .social-icon {
   .cp-examples-section {
     display: none;
   }
-
-  .cp-content.is-submitted #thank-you-section {
-    margin-top: 10%;
-    margin-bottom: 10%;
-  }
 }
 
 /* projects page styles */
@@ -1503,6 +1498,13 @@ footer ul li a:focus .social-icon {
   color: var(--color-text-dim);
 }
 
+.cp-content.is-submitted {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
 .cp-content.is-submitted form {
   display: none;
 }
@@ -1510,9 +1512,8 @@ footer ul li a:focus .social-icon {
 .cp-content.is-submitted #thank-you-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: 40%;
+  text-align: center;
 }
 
 .cp-left-section {
