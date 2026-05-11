@@ -1153,7 +1153,7 @@ a:hover .linkedin-icon-default {
     display: none;
   }
 
-  #thank-you-section {
+  .cp-content.is-submitted #thank-you-section {
     margin-top: 10%;
     margin-bottom: 10%;
   }
@@ -1289,6 +1289,11 @@ a:hover .linkedin-icon-default {
 
 .project:hover {
   border-color: var(--color-text-muted);
+}
+
+.project.is-hidden,
+.project-group.is-hidden {
+  display: none;
 }
 
 .project-icon {
@@ -1441,6 +1446,32 @@ a:hover .linkedin-icon-default {
 /* Contact Page Styles */
 .hidden-iframe {
   display: none;
+}
+
+#thank-you-section {
+  display: none;
+}
+
+#thank-you-section h2 {
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+
+#thank-you-section p {
+  margin-top: 0;
+  color: var(--color-text-dim);
+}
+
+.cp-content.is-submitted form {
+  display: none;
+}
+
+.cp-content.is-submitted #thank-you-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
 }
 
 .cp-left-section {

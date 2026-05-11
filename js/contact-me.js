@@ -1,26 +1,11 @@
 import { escapeHtml } from "./utils.js";
 
 // Form submission / thank-you toggle
+const cpContent = document.querySelector(".cp-content");
 const form = document.getElementById("contact-form");
-const thankYouSection = document.getElementById("thank-you-section");
 
-thankYouSection.style.display = "none";
-
-form.addEventListener("submit", function (event) {
-  form.style.display = "none";
-
-  thankYouSection.style.display = "flex";
-  thankYouSection.style.flexDirection = "column";
-  thankYouSection.style.justifyContent = "center";
-  thankYouSection.style.alignItems = "center";
-  thankYouSection.style.marginTop = "40%";
-
-  const heading = thankYouSection.querySelector("h2");
-  const paragraph = thankYouSection.querySelector("p");
-  heading.style.marginBottom = "10px";
-  heading.style.color = "#FFFFFF";
-  paragraph.style.color = "#607b96";
-  paragraph.style.marginTop = "0";
+form.addEventListener("submit", () => {
+  cpContent.classList.add("is-submitted");
 });
 
 // Live code preview mirroring form input

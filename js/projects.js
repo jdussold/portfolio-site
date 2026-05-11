@@ -12,22 +12,17 @@ function updateProjects() {
 
   projects.forEach((project) => {
     const technologies = project.getAttribute("data-technologies").split(" ");
-    const projectGroup = project.closest(".project-group");
-
-    if (
+    const matches =
       selectedTechnologies.length === 0 ||
-      selectedTechnologies.every((tech) => technologies.includes(tech))
-    ) {
-      project.style.display = "block";
-      projectGroup.style.display = "block";
-    } else {
-      project.style.display = "none";
-      projectGroup.style.display = Array.from(
-        projectGroup.querySelectorAll(".project")
-      ).every((p) => p.style.display === "none")
-        ? "none"
-        : "block";
-    }
+      selectedTechnologies.every((tech) => technologies.includes(tech));
+    project.classList.toggle("is-hidden", !matches);
+  });
+
+  document.querySelectorAll(".project-group").forEach((group) => {
+    const allHidden = Array.from(group.querySelectorAll(".project")).every(
+      (p) => p.classList.contains("is-hidden")
+    );
+    group.classList.toggle("is-hidden", allHidden);
   });
 
   checkboxes.forEach((checkbox) => {
