@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="main">
+    <main class="main">
+      <h1 class="sr-only">About</h1>
       <nav class="navbar">
         <div class="name">john-dussold</div>
         <a href="#" class="toggle-button" aria-label="Toggle Menu">
@@ -64,7 +65,7 @@
         </div>
         <div class="left-section2">
           <div class="ls-top-section">
-            &#9662;&nbsp;<span id="info-tab-text">personal-info</span>
+            <span aria-hidden="true">&#9662;</span>&nbsp;<span id="info-tab-text">personal-info</span>
           </div>
           <div class="nav-folders" id="nav-folders">
             <ul>
@@ -123,7 +124,7 @@
             </ul>
           </div>
           <div class="contact-info-label">
-            &#9662;&nbsp;<span>contact-info</span>
+            <span aria-hidden="true">&#9662;</span>&nbsp;<span>contact-info</span>
           </div>
           <div class="contact-info">
             <img src="./img/email-icon.svg" alt="Email Icon" />
@@ -231,7 +232,8 @@
               <img
                 src="./img/twitter-white.svg"
                 class="twitter-icon-hover"
-                alt="Twitter"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
@@ -249,7 +251,8 @@
               <img
                 src="./img/linkedin-white.svg"
                 class="linkedin-icon-hover"
-                alt="LinkedIn"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
@@ -269,13 +272,14 @@
               <img
                 src="./img/github-white.svg"
                 class="github-icon-hover"
-                alt="Github"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
         </ul>
       </footer>
-    </div>
+    </main>
     <script src="./js/about-me.js"></script>
   </body>
 </html>

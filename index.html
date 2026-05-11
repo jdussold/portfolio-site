@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="main">
+    <main class="main">
         <nav class="navbar">
             <div class="name">john-dussold</div>
             <a href="#" class="toggle-button" aria-label="Toggle Menu">
@@ -30,7 +30,7 @@
     <div class="home-container">
       <div class="content">
         <p>Hi all. I am</p>
-        <h1><span class="typing-text"></span><span class="cursor">|</span></h1>
+        <h1 aria-label="John Dussold"><span class="typing-text" aria-hidden="true"></span><span class="cursor" aria-hidden="true">|</span></h1>
         <h2>> Front-end developer</h2>
         <div class="code-block">
           <span class="comment">// welcome to my portfolio</span><br />
@@ -55,13 +55,13 @@
         <li>
           <a href="https://twitter.com/DussoldJohn" target="_blank" rel="noopener">
             <img src="./img/twitter-grey.svg" class="twitter-icon-default" alt="Twitter" />
-            <img src="./img/twitter-white.svg" class="twitter-icon-hover" alt="Twitter" />
+            <img src="./img/twitter-white.svg" class="twitter-icon-hover" alt="" aria-hidden="true" />
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/john-dussold" target="_blank" rel="noopener">
             <img src="./img/linkedin-grey.svg" class="linkedin-icon-default" alt="LinkedIn" />
-            <img src="./img/linkedin-white.svg" class="linkedin-icon-hover" alt="LinkedIn" />
+            <img src="./img/linkedin-white.svg" class="linkedin-icon-hover" alt="" aria-hidden="true" />
           </a>
         </li>
         <li class="spacer"></li>
@@ -69,11 +69,12 @@
           <a href="https://github.com/jdussold" target="_blank" rel="noopener">
             <span>@jdussold</span>
             <img src="./img/github-grey.svg" class="github-icon-default" alt="Github" />
-            <img src="./img/github-white.svg" class="github-icon-hover" alt="Github" />
+            <img src="./img/github-white.svg" class="github-icon-hover" alt="" aria-hidden="true" />
           </a>
         </li>
       </ul>
     </footer>
+    </main>
     <script src="./js/index.js"></script>
   </body>
 </html>

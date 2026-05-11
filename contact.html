@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="main">
+    <main class="main">
+      <h1 class="sr-only">Contact</h1>
       <nav class="navbar">
         <div class="name">john-dussold</div>
         <a href="#" class="toggle-button" aria-label="Toggle Menu">
@@ -30,7 +31,7 @@
       <div class="cp-container">
         <div class="cp-left-section">
           <div class="cp-top-section">
-            &#9662;&nbsp;<span id="info-tab-text">contact-info</span>
+            <span aria-hidden="true">&#9662;</span>&nbsp;<span id="info-tab-text">contact-info</span>
           </div>
           <div class="cp-contact-info">
             <img src="./img/email-icon.svg" alt="Email Icon" />
@@ -41,7 +42,7 @@
             <p>(612) 321-1219</p>
           </div>
           <div class="cp-contact-info-label">
-            &#9662;&nbsp;<span>find-me-also-on</span>
+            <span aria-hidden="true">&#9662;</span>&nbsp;<span>find-me-also-on</span>
           </div>
           <div class="cp-contact-info">
             <img src="./img/link-icon.svg" alt="link icon" />
@@ -142,7 +143,8 @@
               <img
                 src="./img/twitter-white.svg"
                 class="twitter-icon-hover"
-                alt="Twitter"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
@@ -160,7 +162,8 @@
               <img
                 src="./img/linkedin-white.svg"
                 class="linkedin-icon-hover"
-                alt="LinkedIn"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
@@ -180,13 +183,14 @@
               <img
                 src="./img/github-white.svg"
                 class="github-icon-hover"
-                alt="Github"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
         </ul>
       </footer>
-    </div>
+    </main>
     <script src="./js/contact-me.js"></script>
   </body>
 </html>
