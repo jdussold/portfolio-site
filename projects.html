@@ -2,22 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John Dussold - projects</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Selected projects by John Dussold across Angular, React, REST APIs, Python, and more." />
+    <title>John Dussold - Projects</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <script type="module" src="./js/projects.js"></script>
   </head>
   <body>
-    <div class="main">
+    <main class="main">
+      <h1 class="sr-only">Projects</h1>
       <nav class="navbar">
         <div class="name">john-dussold</div>
-        <a href="#" class="toggle-button" aria-label="Toggle Menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
+        <button type="button" class="toggle-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-links">
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+        </button>
+        <div class="navbar-links" id="navbar-links">
           <ul>
             <li><a href="index.html">_hello</a></li>
             <li><a href="about-me.html">_about-me</a></li>
@@ -29,15 +31,13 @@
       </nav>
       <div class="projects-top-section">
         <div class="projects-title">
-          &#9662;&nbsp;<span id="info-tab-text">projects</span>
+          <span aria-hidden="true">&#9662;</span>&nbsp;<span id="info-tab-text">projects</span>
         </div>
         <div class="info-tab">
           <span class="projects-info-tab-text">projects</span>
-          <img
-            src="./img/close-button.svg"
-            class="close-button"
-            alt="close button"
-          />
+          <svg class="close-button" viewBox="0 0 11 10" aria-hidden="true">
+            <use href="img/icons.svg#icon-close"/>
+          </svg>
         </div>
         <div class="spacer"></div>
       </div>
@@ -64,11 +64,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/angular-icon.svg"
-                  class="technology-icon"
-                  alt="angular icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 20 20" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-angular"/>
+                </svg>
                 Angular
               </label>
             </li>
@@ -92,11 +90,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/css-icon.svg"
-                  class="technology-icon"
-                  alt="css icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 20 18" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-css"/>
+                </svg>
                 CSS
               </label>
             </li>
@@ -120,11 +116,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/html-icon.svg"
-                  class="technology-icon"
-                  alt="html icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 18 20" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-html"/>
+                </svg>
                 HTML
               </label>
             </li>
@@ -148,11 +142,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/javascript-icon.svg"
-                  class="technology-icon"
-                  alt="javascript icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 120 120" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-javascript"/>
+                </svg>
                 JavaScript
               </label>
             </li>
@@ -176,11 +168,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/nosql-icon.svg"
-                  class="technology-icon"
-                  alt="no sql icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 20 20" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-nosql"/>
+                </svg>
                 NoSQL
               </label>
             </li>
@@ -204,11 +194,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/python-icon.svg"
-                  class="technology-icon"
-                  alt="python icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 64 64" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-python"/>
+                </svg>
                 Python
               </label>
             </li>
@@ -232,11 +220,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/react-icon.svg"
-                  class="technology-icon"
-                  alt="react icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 22 20" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-react"/>
+                </svg>
                 React JS
               </label>
             </li>
@@ -260,11 +246,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/react-icon.svg"
-                  class="react-native-icon"
-                  alt="react native icon"
-                />
+                <svg class="react-native-icon" viewBox="0 0 22 20" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-react"/>
+                </svg>
                 React Native
               </label>
             </li>
@@ -288,11 +272,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/rest-api-icon.svg"
-                  class="technology-icon"
-                  alt="rest api icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 122.88 100.33" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-rest-api"/>
+                </svg>
                 REST API
               </label>
             </li>
@@ -316,11 +298,9 @@
                     alt="checked checkbox"
                   />
                 </span>
-                <img
-                  src="./img/typescript-icon.svg"
-                  class="technology-icon"
-                  alt="type script icon"
-                />
+                <svg class="technology-icon" viewBox="0 0 20 20" aria-hidden="true">
+                  <use href="img/icons.svg#icon-tech-typescript"/>
+                </svg>
                 TypeScript
               </label>
             </li>
@@ -332,7 +312,7 @@
               <span class="project-title-number">Project 1</span
               ><span class="project-title-text"> // _pokédex</span>
             </div>
-            <div class="project" data-technologies="css html javascript">
+            <article class="project" data-technologies="css html javascript">
               <div class="project-icon">
                 <img src="./img/css-card-icon.svg" alt="CSS icon" />
                 <img src="./img/html-card-icon.svg" alt="html icon" />
@@ -342,7 +322,7 @@
                 />
               </div>
               <div class="project-image">
-                <img src="./img/project1.png" alt="project one image" />
+                <img src="./img/project1.png" alt="project one image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -365,16 +345,15 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
           <div class="project-group">
             <div class="project-title">
               <span class="project-title-number">Project 2</span>
               <span class="project-title-text">// _movie-api</span>
             </div>
-            <div
+            <article
               class="project"
               data-technologies="rest-api html javascript nosql"
             >
@@ -388,7 +367,7 @@
                 <img src="./img/nosql-card-icon.svg" alt="no sql icon" />
               </div>
               <div class="project-image">
-                <img src="./img/project2.png" alt="project two image" />
+                <img src="./img/project2.png" alt="project two image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -404,16 +383,15 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
           <div class="project-group">
             <div class="project-title">
               <span class="project-title-number">Project 3:</span>
               <span class="project-title-text">// _myflix-react-app</span>
             </div>
-            <div
+            <article
               class="project"
               data-technologies="rest-api css javascript react"
             >
@@ -427,7 +405,7 @@
                 <img src="./img/react-card-icon.svg" alt="react icon" />
               </div>
               <div class="project-image">
-                <img src="./img/project3.png" alt="project three image" />
+                <img src="./img/project3.png" alt="project three image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -450,16 +428,15 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
           <div class="project-group">
             <div class="project-title">
               <span class="project-title-number">Project 4</span>
               <span class="project-title-text">// _meet-pwa</span>
             </div>
-            <div
+            <article
               class="project"
               data-technologies="rest-api css javascript react"
             >
@@ -473,7 +450,7 @@
                 <img src="./img/react-card-icon.svg" alt="react icon" />
               </div>
               <div class="project-image">
-                <img src="./img/project4.png" alt="project four image" />
+                <img src="./img/project4.png" alt="project four image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -496,16 +473,15 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
           <div class="project-group">
             <div class="project-title">
               <span class="project-title-number">Project 5</span>
               <span class="project-title-text">// _hello-world-chat-app</span>
             </div>
-            <div class="project" data-technologies="javascript react-native">
+            <article class="project" data-technologies="javascript react-native">
               <div class="project-icon">
                 <img
                   src="./img/javascript-card-icon.svg"
@@ -514,7 +490,7 @@
                 <img src="./img/react-card-icon.svg" alt="react icon" />
               </div>
               <div class="project-image">
-                <img src="./img/project5.png" alt="project five image" />
+                <img src="./img/project5.png" alt="project five image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -531,16 +507,15 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
           <div class="project-group">
             <div class="project-title">
               <span class="project-title-number">Project 6</span>
               <span class="project-title-text">// _myflix-angular-app</span>
             </div>
-            <div
+            <article
               class="project"
               data-technologies="rest-api css angular typescript"
             >
@@ -554,7 +529,7 @@
                 />
               </div>
               <div class="project-image">
-                <img src="./img/project6.png" alt="project six image" />
+                <img src="./img/project6.png" alt="project six image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -584,16 +559,15 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
           <div class="project-group">
             <div class="project-title">
               <span class="project-title-number">Project 7</span
               ><span class="project-title-text"> // _space-invaders</span>
             </div>
-            <div class="project" data-technologies="css html javascript">
+            <article class="project" data-technologies="css html javascript">
               <div class="project-icon">
                 <img src="./img/css-card-icon.svg" alt="CSS icon" />
                 <img src="./img/html-card-icon.svg" alt="html icon" />
@@ -603,7 +577,7 @@
                 />
               </div>
               <div class="project-image">
-                <img src="./img/project7.png" alt="project seven image" />
+                <img src="./img/project7.png" alt="project seven image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -626,16 +600,15 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
           <div class="project-group">
             <div class="project-title">
               <span class="project-title-number">Project 8</span>
               <span class="project-title-text">// _django-app</span>
             </div>
-            <div class="project" data-technologies="python html javascript css">
+            <article class="project" data-technologies="python html javascript css">
               <div class="project-icon">
                 <img src="./img/python-card-icon.svg" alt="python icon" />
                 <img src="./img/html-card-icon.svg" alt="html icon" />
@@ -646,7 +619,7 @@
                 />
               </div>
               <div class="project-image">
-                <img src="./img/project8.png" alt="project eight image" />
+                <img src="./img/project8.png" alt="project eight image" loading="lazy" />
               </div>
               <div class="project-description">
                 <p>
@@ -669,13 +642,13 @@
                     >view-on-github</a
                   >
                 </div>
-                <div class="project-buttons"></div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
-      <footer>
+    </main>
+    <footer>
         <ul>
           <li>
             <span>Find me on:</span>
@@ -686,16 +659,10 @@
               target="_blank"
               rel="noopener"
             >
-              <img
-                src="./img/twitter-grey.svg"
-                class="twitter-icon-default"
-                alt="Twitter"
-              />
-              <img
-                src="./img/twitter-white.svg"
-                class="twitter-icon-hover"
-                alt="Twitter"
-              />
+              <span class="sr-only">Twitter</span>
+              <svg class="social-icon" width="21" height="17" viewBox="0 0 21 17" aria-hidden="true">
+                <use href="img/icons.svg#icon-twitter"/>
+              </svg>
             </a>
           </li>
           <li>
@@ -704,16 +671,10 @@
               target="_blank"
               rel="noopener"
             >
-              <img
-                src="./img/linkedin-grey.svg"
-                class="linkedin-icon-default"
-                alt="LinkedIn"
-              />
-              <img
-                src="./img/linkedin-white.svg"
-                class="linkedin-icon-hover"
-                alt="LinkedIn"
-              />
+              <span class="sr-only">LinkedIn</span>
+              <svg class="social-icon" width="21" height="17" viewBox="0 0 310 310" aria-hidden="true">
+                <use href="img/icons.svg#icon-linkedin"/>
+              </svg>
             </a>
           </li>
           <li class="spacer"></li>
@@ -724,21 +685,12 @@
               rel="noopener"
             >
               <span>@jdussold</span>
-              <img
-                src="./img/github-grey.svg"
-                class="github-icon-default"
-                alt="Github"
-              />
-              <img
-                src="./img/github-white.svg"
-                class="github-icon-hover"
-                alt="Github"
-              />
+              <svg class="social-icon" width="20" height="21" viewBox="0 0 20 21" aria-hidden="true">
+                <use href="img/icons.svg#icon-github"/>
+              </svg>
             </a>
           </li>
         </ul>
       </footer>
-    </div>
-    <script src="./js/projects.js"></script>
   </body>
 </html>

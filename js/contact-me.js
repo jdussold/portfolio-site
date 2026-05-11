@@ -1,43 +1,18 @@
-// ----------Toggle the form----------------------
+import { escapeHtml, debounce } from "./utils.js";
 
-// Get references to the form and thank you section
+// Form submission / thank-you toggle
+const cpContent = document.querySelector(".cp-content");
 const form = document.getElementById("contact-form");
-const thankYouSection = document.getElementById("thank-you-section");
 
-// Hide the thank you section initially
-thankYouSection.style.display = "none";
-
-// Handle form submission
-form.addEventListener("submit", function (event) {
-  //event.preventDefault(); // Prevent form submission
-
-  // Hide the form
-  form.style.display = "none";
-
-  // Show the thank you section
-  thankYouSection.style.display = "flex";
-  thankYouSection.style.flexDirection = "column";
-  thankYouSection.style.justifyContent = "center";
-  thankYouSection.style.alignItems = "center";
-  thankYouSection.style.marginTop = "40%";
-
-  // Adjust the spacing between heading and paragraph
-  const heading = thankYouSection.querySelector("h2");
-  const paragraph = thankYouSection.querySelector("p");
-  heading.style.marginBottom = "10px";
-  heading.style.color = "#FFFFFF";
-  paragraph.style.color = "#607b96";
-  paragraph.style.marginTop = "0";
+form.addEventListener("submit", () => {
+  cpContent.classList.add("is-submitted");
+  setTimeout(() => form.reset(), 0);
 });
 
-// ---------Message form code preview--------------
-
-// Get the form fields
+// Live code preview mirroring form input
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const messageInput = document.getElementById("message");
-
-// Get the code example element
 const codeExample = document.querySelector(".cp-message-code-example");
 
 function generateLineNumbers() {
@@ -57,7 +32,6 @@ function generateLineNumbers() {
   document.querySelector(".cp-message-code-example").prepend(lineNumberElement);
 }
 
-// Function to update the code example
 function updateCodeExample() {
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString("en-US", {
@@ -69,14 +43,14 @@ function updateCodeExample() {
   const code = `
 <pre><code>
 <span style="color: #C98BDF;">const</span> <span style="color: #4453b9;">button</span> <span style="color: #C98BDF;">=</span> <span style="color: #4453b9;">document</span>.<span style="color: #4453b9;">querySelector</span>(<span style="color: #FEA55F;">'#sendBtn'</span>);
-    
+
 <span style="color: #C98BDF;">const</span> <span style="color: #4453b9;">message</span> <span style="color: #C98BDF;">=</span> {
-  <span style="color: #4453b9;">name</span>: <span style="color: #FEA55F;">"${nameInput.value}"</span>,
-  <span style="color: #4453b9;">email</span>: <span style="color: #FEA55F;">"${emailInput.value}"</span>,
-  <span style="color: #4453b9;">message</span>: <span style="color: #FEA55F;">"${messageInput.value}"</span>,
-  <span style="color: #607b96;">date</span>: <span style="color: #FEA55F;">"${formattedDate}"</span>,
+  <span style="color: #4453b9;">name</span>: <span style="color: #FEA55F;">"${escapeHtml(nameInput.value)}"</span>,
+  <span style="color: #4453b9;">email</span>: <span style="color: #FEA55F;">"${escapeHtml(emailInput.value)}"</span>,
+  <span style="color: #4453b9;">message</span>: <span style="color: #FEA55F;">"${escapeHtml(messageInput.value)}"</span>,
+  <span style="color: #607b96;">date</span>: <span style="color: #FEA55F;">"${escapeHtml(formattedDate)}"</span>,
 };
-    
+
 <span style="color: #4453b9;">button.addEventListener</span>(<span style="color: #FEA55F;">'click'</span>, <span style="color: #C98BDF;">()</span> <span style="color: #C98BDF;">=></span> {
   <span style="color: #4453b9;">form</span>.<span style="color: #4453b9;">send</span>(<span style="color: #4453b9;">message</span>);
 });
@@ -86,27 +60,28 @@ function updateCodeExample() {
   const lineNumberElement = document.querySelector(
     ".cp-message-code-example .line-numbers"
   );
-  if (lineNumberElement) lineNumberElement.remove(); // Remove previous line numbers
+  if (lineNumberElement) lineNumberElement.remove();
 
   codeExample.innerHTML = code;
 
   generateLineNumbers();
 }
 
-// Event listeners for input fields
-nameInput.addEventListener("input", updateCodeExample);
-emailInput.addEventListener("input", updateCodeExample);
-messageInput.addEventListener("input", updateCodeExample);
+const debouncedUpdate = debounce(updateCodeExample, 100);
+nameInput.addEventListener("input", debouncedUpdate);
+emailInput.addEventListener("input", debouncedUpdate);
+messageInput.addEventListener("input", debouncedUpdate);
 
-// Initial update of the code example
 updateCodeExample();
 
-// Toggle responsive navbar
+// Mobile menu toggle
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
 const container = document.querySelector(".cp-container");
 
 toggleButton.addEventListener("click", () => {
+  const expanded = toggleButton.getAttribute("aria-expanded") === "true";
+  toggleButton.setAttribute("aria-expanded", String(!expanded));
   navbarLinks.classList.toggle("active");
   container.classList.toggle("blur-effect");
 });

@@ -1,33 +1,78 @@
+:root {
+  --color-bg: #011627;
+  --color-bg-elevated: #001221;
+  --color-bg-button: #263b50;
+  --color-bg-button-pressed: #01080e;
+  --color-border: #1e2d3d;
+  --color-text: #ffffff;
+  --color-text-muted: #89a4bf;
+  --color-text-dim: #607b96;
+  --color-line-number: #999999;
+  --color-accent: #fea55f;
+  --color-mint: #43d9ad;
+  --color-blue: #4453b9;
+  --color-blue-light: #4d5bce;
+  --color-purple: #c98bdf;
+  --color-coral: #e99287;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --font-mono: "Fira Code", monospace;
+  --border-default: 2px solid var(--color-border);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --transition-default: all 0.3s;
+}
+
 /* Shared Selectors */
 * {
   box-sizing: border-box;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body {
-  font: 18px "Fira Code", monospace;
-  background-color: #011627;
-  color: #ffffff;
+  font: 18px var(--font-mono);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  caret-color: transparent;
+}
+
+input,
+textarea {
+  caret-color: auto;
 }
 
 .main {
   width: 100%;
-  min-height: 100vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: auto;
 }
 
 .navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: #011627;
-  border: 2px solid #1e2d3d;
+  background-color: var(--color-bg);
+  border: var(--border-default);
 }
 
 .navbar-links {
@@ -41,7 +86,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-left: 2px solid #1e2d3d;
+  border-left: var(--border-default);
   flex-grow: 1;
   z-index: 2;
 }
@@ -53,12 +98,12 @@ body {
 
 nav ul li {
   align-items: center;
-  border-right: 2px solid #1e2d3d;
+  border-right: var(--border-default);
   flex-grow: 0;
 }
 
 nav ul li a {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   text-decoration: none;
   font-size: 16px;
   padding: 10px;
@@ -68,8 +113,8 @@ nav ul li a {
 }
 
 nav ul li.active a {
-  color: #ffffff;
-  border-bottom: 2px solid #fea55f;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 nav ul li:first-child a {
@@ -84,14 +129,14 @@ nav ul li:last-child a {
 
 nav ul li:last-child {
   border-right: none;
-  border-left: 2px solid #1e2d3d;
+  border-left: var(--border-default);
   justify-content: flex-end;
 }
 
 nav ul li a:hover,
 nav ul li a:focus {
-  color: #ffffff;
-  border-bottom: 2px solid #fea55f;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .blur-effect {
@@ -101,7 +146,7 @@ nav ul li a:focus {
 
 .name {
   width: 321px;
-  color: #89a4bf;
+  color: var(--color-text-muted);
   font-size: 16px;
   margin-left: 25px;
   display: flex;
@@ -118,12 +163,21 @@ nav ul li a:focus {
   justify-content: space-between;
   width: 30px;
   height: 21px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.toggle-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .toggle-button .bar {
   height: 3px;
   width: 100%;
-  background-color: #89a4bf;
+  background-color: var(--color-text-muted);
   border-radius: 10px;
 }
 
@@ -132,11 +186,11 @@ nav ul li a:focus {
   flex: 1 0 auto;
   display: flex;
   justify-content: center;
-  border-left: 2px solid #1e2d3d;
+  border-left: var(--border-default);
 }
 
 .home-container {
-  flex: 1 0 auto;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,7 +205,7 @@ p {
 h1 {
   font-size: 62px;
   font-weight: normal;
-  color: #ffffff;
+  color: var(--color-text);
   margin: 0;
   padding: 0;
   line-height: 1.2;
@@ -160,15 +214,18 @@ h1 {
 h2 {
   font-size: 32px;
   font-weight: normal;
-  color: #4453b9;
+  color: var(--color-blue);
   margin: 0 0 2em;
 }
 
 footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
   flex-shrink: 0;
   width: 100%;
-  background-color: #011627;
-  border: 2px solid #1e2d3d;
+  background-color: var(--color-bg);
+  border: var(--border-default);
   border-left: none;
 }
 
@@ -182,27 +239,30 @@ footer ul {
 }
 
 footer ul li {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   font-size: 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
-  border-left: 2px solid #1e2d3d;
+  border-left: var(--border-default);
 }
 
 footer ul li a {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   text-decoration: none;
   font-size: 16px;
   text-align: center;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
-footer ul li a img {
+footer ul li a .social-icon {
   width: 16px;
   height: 16px;
-  margin-left: 10px;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
 }
 
 footer ul li.spacer {
@@ -211,31 +271,12 @@ footer ul li.spacer {
 
 footer ul li a:hover,
 footer ul li a:focus {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
-.github-icon-hover,
-.twitter-icon-hover,
-.linkedin-icon-hover {
-  display: none;
-}
-
-a:hover .github-icon-hover,
-a:hover .twitter-icon-hover,
-a:hover .linkedin-icon-hover {
-  display: inline;
-}
-
-a .github-icon-default,
-a .twitter-icon-default,
-a .linkedin-icon-default {
-  display: inline;
-}
-
-a:hover .github-icon-default,
-a:hover .twitter-icon-default,
-a:hover .linkedin-icon-default {
-  display: none;
+footer ul li a:hover .social-icon,
+footer ul li a:focus .social-icon {
+  color: var(--color-text);
 }
 
 /* index.html Specific Selectors */
@@ -268,15 +309,15 @@ a:hover .linkedin-icon-default {
 }
 
 .code-block .const {
-  color: #4453b9;
+  color: var(--color-blue);
 }
 
 .code-block .const-var {
-  color: #43d9ad;
+  color: var(--color-mint);
 }
 
 .code-block a {
-  color: #e99287;
+  color: var(--color-coral);
   text-decoration: none;
 }
 
@@ -285,11 +326,11 @@ a:hover .linkedin-icon-default {
 }
 
 .comment {
-  color: #89a4bf;
+  color: var(--color-text-muted);
 }
 
 .equal-sign {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 /* Game */
@@ -298,14 +339,15 @@ a:hover .linkedin-icon-default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: left;
-  height: 80%;
+  align-items: flex-start;
+  height: 80vh;
   width: 45%;
   margin-left: 5%;
   margin-right: 5%;
 }
 
 .game {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -321,6 +363,40 @@ a:hover .linkedin-icon-default {
   );
   box-shadow: 10px 10px 30px rgba(77, 91, 206, 0.6),
     -10px -10px 30px rgba(67, 217, 173, 0.6);
+  animation: game-breathe 4s ease-in-out infinite;
+}
+
+.game::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid var(--color-mint);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.game:hover::after {
+  opacity: 1;
+}
+
+@keyframes game-breathe {
+  0%,
+  100% {
+    box-shadow: 10px 10px 30px rgba(77, 91, 206, 0.6),
+      -10px -10px 30px rgba(67, 217, 173, 0.6);
+  }
+  50% {
+    box-shadow: 12px 12px 32px rgba(77, 91, 206, 0.6),
+      -12px -12px 32px rgba(67, 217, 173, 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game {
+    animation: none;
+  }
 }
 
 .iframe-container {
@@ -335,6 +411,7 @@ a:hover .linkedin-icon-default {
   left: 0;
   width: 100%;
   height: 100%;
+  border: 0;
   border-radius: 12px;
 }
 
@@ -347,12 +424,12 @@ a:hover .linkedin-icon-default {
     position: absolute;
     top: 100%;
     width: 100%;
-    background-color: #011627;
-    border-bottom: 2px solid #1e2d3d;
+    background-color: var(--color-bg);
+    border-bottom: var(--border-default);
   }
   .navbar-links ul li:hover,
   .navbar-links ul li:focus {
-    background-color: #89a4bf;
+    background-color: var(--color-text-muted);
   }
   .navbar-links ul li a:hover,
   .navbar-links ul li a:focus {
@@ -382,7 +459,7 @@ a:hover .linkedin-icon-default {
   .navbar-links ul li a {
     display: flex;
     align-items: center;
-    color: #ffffff;
+    color: var(--color-text);
     padding-right: 0;
     padding-left: 15px;
   }
@@ -393,7 +470,7 @@ a:hover .linkedin-icon-default {
     border-bottom: none;
   }
   .navbar-links ul li a:first-child {
-    border-top: 2px solid #1e2d3d;
+    border-top: var(--border-default);
   }
   nav ul li:last-child {
     border-left: none;
@@ -403,8 +480,8 @@ a:hover .linkedin-icon-default {
     display: flex;
   }
   .home-container {
-    border-left: 2px solid #1e2d3d;
-    border-right: 2px solid #1e2d3d;
+    border-left: var(--border-default);
+    border-right: var(--border-default);
   }
   .skill-line-label {
     visibility: hidden;
@@ -448,7 +525,7 @@ a:hover .linkedin-icon-default {
 
   h2 {
     margin-bottom: 40%;
-    color: #43d9ad;
+    color: var(--color-mint);
     font-size: 24px;
   }
 
@@ -459,14 +536,14 @@ a:hover .linkedin-icon-default {
 
   .cp-left-section {
     border-right: none;
-    border-bottom: 2px solid #1e2d3d;
+    border-bottom: var(--border-default);
     width: 100%;
     margin-bottom: 20px;
   }
 
   .info-section {
     margin-top: 20px;
-    border-top: 2px solid #1e2d3d;
+    border-top: var(--border-default);
   }
 }
 
@@ -504,7 +581,7 @@ a:hover .linkedin-icon-default {
 }
 
 .left-section1 {
-  border-right: 2px solid #1e2d3d;
+  border-right: var(--border-default);
   padding: 0 30px;
 }
 
@@ -528,34 +605,53 @@ a:hover .linkedin-icon-default {
   margin-top: 50px;
 }
 
-.personal-info-icon,
-.skills-icon,
-.education-icon,
-.briefcase-icon,
 .contact-info,
 .cp-contact-info {
-  transition: all 0.3s;
+  transition: color 0.3s;
 }
 
-.personal-info-icon:hover,
-.skills-icon:hover,
-.education-icon:hover,
-.briefcase-icon:hover,
 .contact-info:hover,
 .cp-contact-info:hover {
-  filter: brightness(300%);
+  color: var(--color-text);
   cursor: pointer;
+}
+
+.icon-button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button svg {
+  display: block;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible,
+.icon-button.active {
+  color: var(--color-text);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .phone-info,
 .cp-phone-info {
   display: flex;
   margin: 20px;
-  color: #89a4bf;
+  color: var(--color-text-muted);
 }
 
-.phone-info img,
-.cp-phone-info img {
+.phone-info .contact-icon,
+.cp-phone-info .contact-icon {
   margin-right: 10px;
 }
 
@@ -566,24 +662,24 @@ a:hover .linkedin-icon-default {
 .cp-top-section {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #1e2d3d;
+  border-bottom: var(--border-default);
   min-height: 50px;
   max-height: 50px;
-  color: #ffffff;
+  color: var(--color-text);
   padding-left: 20px;
 }
 
 .left-section2 {
-  border-right: 2px solid #1e2d3d;
+  border-right: var(--border-default);
 }
 
 .nav-folders {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   padding-right: 80px;
 }
 
 #nav-folders .folder-item.active {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .folder-item {
@@ -592,53 +688,69 @@ a:hover .linkedin-icon-default {
   margin-bottom: 10px;
 }
 
-.folder-item img {
+.folder-item img,
+.folder-item svg {
   margin-right: 10px;
+}
+
+.collapsed-folder-icon {
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.folder-item.active .collapsed-folder-icon {
+  transform: rotate(90deg);
+  filter: brightness(300%);
 }
 
 #bio,
 #skills,
 #education,
 #resume {
-  transition: all 0.3s;
+  transition: var(--transition-default);
 }
 
 #bio:hover,
 #skills:hover,
 #education:hover,
 #resume:hover {
-  color: #ffffff;
+  color: var(--color-text);
   cursor: pointer;
+}
+
+.folder-item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  color: var(--color-text);
 }
 
 .contact-info-label,
 .cp-contact-info-label {
   padding: 10px 20px;
-  border-top: 2px solid #1e2d3d;
-  border-bottom: 2px solid #1e2d3d;
+  border-top: var(--border-default);
+  border-bottom: var(--border-default);
 }
 
 .contact-info,
 .cp-contact-info {
   display: flex;
   margin: 20px;
-  color: #89a4bf;
+  color: var(--color-text-muted);
 }
 
 .contact-info a,
 .cp-contact-info a {
   text-decoration: none;
   cursor: pointer;
-  color: #89a4bf;
+  color: var(--color-text-muted);
 }
 
 .contact-info a:hover,
 .cp-contact-info a:hover {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
-.contact-info img,
-.cp-contact-info img {
+.contact-info .contact-icon,
+.cp-contact-info .contact-icon {
   margin-right: 10px;
   width: 20px;
   height: auto;
@@ -648,7 +760,9 @@ a:hover .linkedin-icon-default {
 .examples-section,
 .cp-examples-section {
   flex: 1 1 0;
-  border-right: 2px solid #1e2d3d;
+  border-right: var(--border-default);
+  display: flex;
+  flex-direction: column;
 }
 
 .info-tab {
@@ -657,8 +771,8 @@ a:hover .linkedin-icon-default {
   justify-content: space-between;
   align-items: center;
   padding-right: 20px;
-  color: #89a4bf;
-  border-right: 2px solid #1e2d3d;
+  color: var(--color-text-muted);
+  border-right: var(--border-default);
   align-self: stretch;
 }
 
@@ -673,6 +787,7 @@ a:hover .linkedin-icon-default {
   width: 11px;
   height: 10px;
   cursor: pointer;
+  color: var(--color-text-dim);
 }
 
 .content-about-me,
@@ -686,7 +801,7 @@ a:hover .linkedin-icon-default {
 
 .line-numbers {
   margin-right: 20px;
-  color: #89a4bf;
+  color: var(--color-text-muted);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -704,7 +819,7 @@ a:hover .linkedin-icon-default {
   margin-left: 40px;
   margin-bottom: 0;
   padding: 0 0 0 20px;
-  color: #89a4bf;
+  color: var(--color-text-muted);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -714,20 +829,20 @@ a:hover .linkedin-icon-default {
 .examples-content,
 .resume-examples-content,
 .cp-examples-content {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   margin: 5%;
   display: flex;
   flex-direction: column;
 }
 
 .education-examples-content {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   margin: 5% 5% 10%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  height: 40%;
+  flex: 1;
   overflow: hidden;
 }
 
@@ -760,19 +875,19 @@ a:hover .linkedin-icon-default {
     opacity: 0;
   }
   5% {
-    transform: translateY(-30%);
+    transform: translateY(0);
     opacity: 1;
   }
   33% {
-    transform: translateY(-30%);
+    transform: translateY(0);
     opacity: 1;
   }
   38% {
-    transform: translateY(10%);
+    transform: translateY(100%);
     opacity: 0;
   }
   100% {
-    transform: translateY(0%);
+    transform: translateY(100%);
     opacity: 0;
   }
 }
@@ -813,13 +928,13 @@ a:hover .linkedin-icon-default {
 }
 
 .username {
-  color: #4453b9;
+  color: var(--color-blue);
   font-weight: 700;
   margin-right: 10px;
 }
 
 .created-at {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   font-size: 14px;
   margin-top: 5px;
 }
@@ -845,7 +960,8 @@ a:hover .linkedin-icon-default {
   height: 20px;
   margin-right: 5px;
   cursor: pointer;
-  transition: filter 0.3s;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
 }
 
 .details-text {
@@ -855,22 +971,24 @@ a:hover .linkedin-icon-default {
 
 .description-icon:hover,
 .details-text:hover {
-  color: #ffffff;
-  cursor: pointer !important;
-  filter: brightness(300%);
+  color: var(--color-text);
+  cursor: pointer;
 }
 
 .gist-content pre {
   margin: 0;
   border-radius: 13px;
-  border: 2px solid #1e2d3d;
+  border: var(--border-default);
   padding: 20px;
   font-size: 14px;
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-dim);
+  white-space: pre-wrap;
   transition: all 0.3s;
 }
 
 .gist-content pre:hover {
-  border-color: #89a4bf;
+  border-color: var(--color-text-muted);
 }
 
 .description-section {
@@ -880,38 +998,58 @@ a:hover .linkedin-icon-default {
   padding-top: 10px;
 }
 
+.description-section.expanded {
+  border-top: var(--border-default);
+}
+
 .description {
   display: none;
   margin-bottom: 20px;
   line-height: 1.2;
-  color: #89a4bf;
+  color: var(--color-text-muted);
   font-size: 14px;
   padding-right: 20px;
 }
 
-.description-visible {
+.description-section.expanded .description {
   display: block;
 }
+
 .description-close-button {
   position: absolute;
   top: 15px;
   right: 10px;
+  width: 11px;
+  height: 10px;
   display: none;
   cursor: pointer;
-  transition: filter 0.3s;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
+}
+
+.description-section.expanded .description-close-button {
+  display: block;
 }
 
 .description-close-button:hover {
-  filter: brightness(300%);
+  color: var(--color-text);
+}
+
+.description-icon.active {
+  color: var(--color-text);
+}
+
+.details-text.active {
+  color: var(--color-text);
 }
 
 .animated-text {
-  border: 2px solid #1e2d3d;
+  border: var(--border-default);
   border-radius: 12px;
 }
 
 .skills-examples-content {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   margin: 5%;
   display: flex;
   flex-direction: column;
@@ -934,15 +1072,15 @@ a:hover .linkedin-icon-default {
 
 .skills-background {
   width: 100%;
-  background-color: #001221;
-  border: 2px solid #1e2d3d;
+  background-color: var(--color-bg-elevated);
+  border: var(--border-default);
   border-radius: 12px;
   padding-bottom: 70px;
   transition: all 0.3s;
 }
 
 .skills-background:hover {
-  border-color: #89a4bf;
+  border-color: var(--color-text-muted);
 }
 
 .skill-lines {
@@ -955,7 +1093,7 @@ a:hover .linkedin-icon-default {
   height: inherit;
   width: 1px;
   position: absolute;
-  background: #1e2d3d;
+  background: var(--color-border);
 }
 
 .skill-line.skill-line--0 {
@@ -979,7 +1117,7 @@ a:hover .linkedin-icon-default {
 }
 
 .skill-line-label {
-  color: #fea55f;
+  color: var(--color-accent);
   display: block;
   width: 100px;
   text-align: center;
@@ -1007,7 +1145,7 @@ a:hover .linkedin-icon-default {
 }
 
 .chart-title {
-  color: #fea55f;
+  color: var(--color-accent);
   display: block;
   margin: 0 0 10px;
   padding-left: 40px;
@@ -1024,7 +1162,7 @@ a:hover .linkedin-icon-default {
 .chart-bar {
   height: 30px;
   margin-bottom: 10px;
-  background: linear-gradient(to left, #43d9ad, #4d5bce);
+  background: linear-gradient(to left, var(--color-mint), var(--color-blue-light));
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   opacity: 0;
@@ -1034,7 +1172,7 @@ a:hover .linkedin-icon-default {
 .chart-label {
   padding-left: 10px;
   line-height: 30px;
-  color: white;
+  color: var(--color-text);
 }
 
 @keyframes slide-right {
@@ -1054,36 +1192,6 @@ a:hover .linkedin-icon-default {
   margin-top: 20px;
 }
 
-/* .resume-button {
-  max-width: 200px;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  background: linear-gradient(90deg, #4d5bce, #43d9ad);
-  background-size: 200% 100%;
-  animation: flow 5s ease-in-out infinite;
-  transition: all 0.3s;
-}
-
-.resume-button:hover {
-  opacity: 0.8;
-}
-
-@keyframes flow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
-
 @media (max-width: 1400px) {
   .container {
     flex-direction: column;
@@ -1094,7 +1202,7 @@ a:hover .linkedin-icon-default {
   }
 
   .top-section {
-    border-top: 2px solid #1e2d3d;
+    border-top: var(--border-default);
   }
 
   .cp-top-section {
@@ -1119,11 +1227,6 @@ a:hover .linkedin-icon-default {
   .cp-examples-section {
     display: none;
   }
-
-  #thank-you-section {
-    margin-top: 10% !important;
-    margin-bottom: 10%;
-  }
 }
 
 /* projects page styles */
@@ -1131,18 +1234,18 @@ a:hover .linkedin-icon-default {
   display: flex;
   flex-grow: 1;
   align-items: flex-start;
-  border-left: 2px solid #1e2d3d;
-  border-right: 2px solid #1e2d3d;
+  border-left: var(--border-default);
+  border-right: var(--border-default);
 }
 
 .projects-top-section {
-  border-left: 2px solid #1e2d3d;
-  border-right: 2px solid #1e2d3d;
+  border-left: var(--border-default);
+  border-right: var(--border-default);
 }
 
 .projects-title {
   width: 323px;
-  border-right: 2px solid #1e2d3d;
+  border-right: var(--border-default);
   height: 100%;
   display: flex;
   align-items: center;
@@ -1155,7 +1258,7 @@ a:hover .linkedin-icon-default {
   flex-grow: 0;
   justify-content: space-between;
   align-items: center;
-  color: #89a4bf;
+  color: var(--color-text-muted);
   align-self: stretch;
 }
 
@@ -1163,11 +1266,11 @@ a:hover .linkedin-icon-default {
   width: 348px;
   padding: 30px;
   height: 100%;
-  border-right: 2px solid #1e2d3d;
+  border-right: var(--border-default);
 }
 
 .technologies-filter-container ul {
-  color: #89a4bf;
+  color: var(--color-text-muted);
   line-height: 2em;
   list-style-type: none;
   padding: 0;
@@ -1180,16 +1283,27 @@ a:hover .linkedin-icon-default {
 }
 
 .technologies-filter-container li:hover {
-  color: #ffffff;
-  filter: brightness(150%);
+  color: var(--color-text);
 }
 
-.technologies-filter-container li img:first-child {
-  margin-right: 30px;
-}
-
-.technologies-filter-container li img:last-child {
+.technologies-filter-container li .technology-icon,
+.technologies-filter-container li .react-native-icon {
+  width: 20px;
+  height: 20px;
   margin-right: 15px;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
+}
+
+.technologies-filter-container li:hover .technology-icon,
+.technologies-filter-container li:hover .react-native-icon,
+.technologies-filter-container li.selected .technology-icon,
+.technologies-filter-container li.selected .react-native-icon {
+  color: var(--color-text);
+}
+
+.technologies-filter-container li.selected {
+  color: var(--color-text);
 }
 
 .checkbox {
@@ -1240,12 +1354,17 @@ a:hover .linkedin-icon-default {
   border-radius: 8px;
   max-width: 500px;
   max-height: 375px;
-  border: 2px solid #1e2d3d;
+  border: var(--border-default);
   transition: all 0.3s;
 }
 
 .project:hover {
-  border-color: #89a4bf;
+  border-color: var(--color-text-muted);
+}
+
+.project.is-hidden,
+.project-group.is-hidden {
+  display: none;
 }
 
 .project-icon {
@@ -1264,12 +1383,12 @@ a:hover .linkedin-icon-default {
 }
 
 .project-title-number {
-  color: #4d5bce;
+  color: var(--color-blue-light);
   font-weight: 700;
 }
 
 .project-title-text {
-  color: #89a4bf;
+  color: var(--color-text-muted);
 }
 
 .project-image {
@@ -1278,13 +1397,19 @@ a:hover .linkedin-icon-default {
   border-radius: 7px;
   overflow: hidden;
   width: 100%;
+  min-width: 0;
   display: flex;
   align-items: center;
 }
 
+.project-image img {
+  max-width: 100%;
+  height: auto;
+}
+
 .project-description {
   flex: 1 1 50%;
-  background-color: #001221;
+  background-color: var(--color-bg-elevated);
   max-width: 496px;
   border-radius: 8px;
   overflow: hidden;
@@ -1297,7 +1422,7 @@ a:hover .linkedin-icon-default {
   word-wrap: break-word;
   padding: 20px;
   text-align: left;
-  color: #89a4bf;
+  color: var(--color-text-muted);
 }
 
 .project-buttons {
@@ -1311,7 +1436,7 @@ a:hover .linkedin-icon-default {
 .view-github-button,
 .view-pdf-button,
 .cp-content button {
-  font: 14px "Fira Code", monospace;
+  font: 14px var(--font-mono);
   text-decoration: none;
   margin-left: 40px;
   margin-right: 40px;
@@ -1325,9 +1450,9 @@ a:hover .linkedin-icon-default {
   cursor: pointer;
   border: none;
   border-radius: 8px;
-  background-color: #263b50;
-  color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-bg-button);
+  color: var(--color-text);
+  box-shadow: 0 2px 5px var(--color-shadow);
 }
 
 .view-pdf-button {
@@ -1340,8 +1465,8 @@ a:hover .linkedin-icon-default {
 .view-github-button:hover,
 .view-pdf-button:hover,
 .cp-content button:hover {
-  background-color: #fea55f;
-  color: #01080e;
+  background-color: var(--color-accent);
+  color: var(--color-bg-button-pressed);
 }
 
 .checkbox:hover {
@@ -1356,7 +1481,7 @@ a:hover .linkedin-icon-default {
   .technologies-filter-container {
     order: 1;
     border-right: none;
-    border-bottom: 2px solid #1e2d3d;
+    border-bottom: var(--border-default);
     padding-bottom: 20px;
     margin-bottom: 20px;
     width: 100%;
@@ -1400,8 +1525,40 @@ a:hover .linkedin-icon-default {
   display: none;
 }
 
+#thank-you-section {
+  display: none;
+}
+
+#thank-you-section h2 {
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+
+#thank-you-section p {
+  margin-top: 0;
+  color: var(--color-text-dim);
+}
+
+.cp-content.is-submitted {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.cp-content.is-submitted form {
+  display: none;
+}
+
+.cp-content.is-submitted #thank-you-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .cp-left-section {
-  border-right: 2px solid #1e2d3d;
+  border-right: var(--border-default);
   width: 348px;
 }
 
@@ -1414,7 +1571,7 @@ a:hover .linkedin-icon-default {
 
 .cp-content label {
   margin-bottom: 20px;
-  color: #89a4bf;
+  color: var(--color-text-muted);
 }
 
 .cp-content input,
@@ -1423,10 +1580,10 @@ a:hover .linkedin-icon-default {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 8px;
-  border: 2px solid #1e2d3d;
-  background-color: #001221;
-  color: #89a4bf;
-  font: 16px "Fira Code", monospace;
+  border: var(--border-default);
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-muted);
+  font: 16px var(--font-mono);
   transition: all 0.3s;
 }
 
@@ -1435,7 +1592,7 @@ a:hover .linkedin-icon-default {
 .cp-content textarea:focus,
 .cp-content textarea:hover {
   outline: none;
-  border-color: #89a4bf;
+  border-color: var(--color-text-muted);
 }
 
 .cp-content textarea {
@@ -1447,7 +1604,7 @@ a:hover .linkedin-icon-default {
 }
 
 .cp-message-code-example pre {
-  font: 18px "Fira Code", monospace;
+  font: 18px var(--font-mono);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1469,63 +1626,8 @@ a:hover .linkedin-icon-default {
   position: absolute;
   left: 0;
   padding-right: 100px;
-  color: #999999;
+  color: var(--color-line-number);
   white-space: pre;
   transform: translateY(1em);
   margin-bottom: 0;
-}
-
-@media screen and (max-width: 999px) {
-  .game-container {
-    display: none;
-  }
-
-  .content {
-    margin: 0 5%;
-  }
-
-  .name {
-    width: 133px;
-    padding-right: 15px;
-    padding-left: 0;
-    margin-left: 15px;
-  }
-
-  .home-container {
-    background-image: url("../img/background-gradient.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .content p {
-    font-size: 24px;
-  }
-
-  h1 {
-    font-size: 68px;
-  }
-
-  h2 {
-    margin-bottom: 40%;
-    color: #43d9ad;
-    font-size: 24px;
-  }
-
-  .cp-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cp-left-section {
-    border-right: none;
-    border-bottom: 2px solid #1e2d3d;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .info-section {
-    margin-top: 20px;
-    border-top: 2px solid #1e2d3d;
-  }
 }

@@ -1,59 +1,52 @@
-// Get all the checkboxes
-const checkboxes = document.querySelectorAll(".checkbox");
+const checkboxes = Array.from(document.querySelectorAll(".checkbox"));
+const projectGroups = Array.from(document.querySelectorAll(".project-group")).map(
+  (group) => ({
+    group,
+    projects: Array.from(group.querySelectorAll(".project")).map((project) => ({
+      project,
+      technologies: project.getAttribute("data-technologies").split(" "),
+    })),
+  })
+);
+const checkboxItems = checkboxes.map((checkbox) => ({
+  checkbox,
+  listItem: checkbox.closest("li"),
+}));
 
-// Get all the project elements
-const projects = document.querySelectorAll(".project");
-
-// Add event listeners to the checkboxes
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", updateProjects);
 });
 
-// Function to update the displayed projects
 function updateProjects() {
-  const selectedTechnologies = Array.from(checkboxes)
+  const selectedTechnologies = checkboxes
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => checkbox.value);
 
-  projects.forEach((project) => {
-    const technologies = project.getAttribute("data-technologies").split(" ");
-    const projectGroup = project.closest(".project-group");
-
-    if (
-      selectedTechnologies.length === 0 ||
-      selectedTechnologies.every((tech) => technologies.includes(tech))
-    ) {
-      project.style.display = "block";
-      projectGroup.style.display = "block";
-    } else {
-      project.style.display = "none";
-      projectGroup.style.display = Array.from(
-        projectGroup.querySelectorAll(".project")
-      ).every((p) => p.style.display === "none")
-        ? "none"
-        : "block";
-    }
+  projectGroups.forEach(({ group, projects }) => {
+    let visibleCount = 0;
+    projects.forEach(({ project, technologies }) => {
+      const matches =
+        selectedTechnologies.length === 0 ||
+        selectedTechnologies.every((tech) => technologies.includes(tech));
+      project.classList.toggle("is-hidden", !matches);
+      if (matches) visibleCount++;
+    });
+    group.classList.toggle("is-hidden", visibleCount === 0);
   });
 
-  // Update the color and brightness of the list item
-  checkboxes.forEach((checkbox) => {
-    const listItem = checkbox.closest("li");
-    if (checkbox.checked) {
-      listItem.style.color = "#FFFFFF";
-      listItem.style.filter = "brightness(150%)";
-    } else {
-      listItem.style.color = "";
-      listItem.style.filter = "";
-    }
+  checkboxItems.forEach(({ checkbox, listItem }) => {
+    listItem.classList.toggle("selected", checkbox.checked);
   });
 }
 
-// Toggle responsive navbar
+// Mobile menu toggle
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
 const container = document.querySelector(".projects-page-container");
 
 toggleButton.addEventListener("click", () => {
+  const expanded = toggleButton.getAttribute("aria-expanded") === "true";
+  toggleButton.setAttribute("aria-expanded", String(!expanded));
   navbarLinks.classList.toggle("active");
   container.classList.toggle("blur-effect");
 });

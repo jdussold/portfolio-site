@@ -2,22 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of John Dussold, front-end developer and designer. Projects, skills, and contact info." />
     <title>John Dussold - Portfolio</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <script type="module" src="./js/index.js"></script>
   </head>
   <body>
-    <div class="main">
+    <main class="main">
         <nav class="navbar">
             <div class="name">john-dussold</div>
-            <a href="#" class="toggle-button" aria-label="Toggle Menu">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-            </a>
-            <div class="navbar-links">
+            <button type="button" class="toggle-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbar-links">
+              <span class="bar" aria-hidden="true"></span>
+              <span class="bar" aria-hidden="true"></span>
+              <span class="bar" aria-hidden="true"></span>
+            </button>
+            <div class="navbar-links" id="navbar-links">
               <ul>
                 <li class="active"><a href="index.html">_hello</a></li>
                 <li><a href="about-me.html">_about-me</a></li>
@@ -30,7 +31,7 @@
     <div class="home-container">
       <div class="content">
         <p>Hi all. I am</p>
-        <h1><span class="typing-text"></span><span class="cursor">|</span></h1>
+        <h1 aria-label="John Dussold"><span class="typing-text" aria-hidden="true"></span><span class="cursor" aria-hidden="true">|</span></h1>
         <h2>> Front-end developer</h2>
         <div class="code-block">
           <span class="comment">// welcome to my portfolio</span><br />
@@ -42,11 +43,12 @@
       <div class="game-instructions"><span class="comment">// press 'a' or the left arrow key to move left</span><br /><span class="comment">// press 'd' or the right arrow key to move right</span><br /><span class="comment">// press the spacebar to shoot</span></div>
       <div class="game">
         <div class="iframe-container">
-          <iframe src="https://jdussold.github.io/space-invaders-responsive" frameborder="0" title="Space Invaders Game"></iframe>
+          <iframe src="https://jdussold.github.io/space-invaders-responsive" title="Space Invaders Game" sandbox="allow-scripts allow-same-origin"></iframe>
         </div>
       </div>                
     </div>
     </div>
+    </main>
     <footer>
       <ul>
         <li>
@@ -54,26 +56,30 @@
         </li>
         <li>
           <a href="https://twitter.com/DussoldJohn" target="_blank" rel="noopener">
-            <img src="./img/twitter-grey.svg" class="twitter-icon-default" alt="Twitter" />
-            <img src="./img/twitter-white.svg" class="twitter-icon-hover" alt="Twitter" />
+            <span class="sr-only">Twitter</span>
+            <svg class="social-icon" width="21" height="17" viewBox="0 0 21 17" aria-hidden="true">
+              <use href="img/icons.svg#icon-twitter"/>
+            </svg>
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/john-dussold" target="_blank" rel="noopener">
-            <img src="./img/linkedin-grey.svg" class="linkedin-icon-default" alt="LinkedIn" />
-            <img src="./img/linkedin-white.svg" class="linkedin-icon-hover" alt="LinkedIn" />
+            <span class="sr-only">LinkedIn</span>
+            <svg class="social-icon" viewBox="0 0 310 310" aria-hidden="true">
+              <use href="img/icons.svg#icon-linkedin"/>
+            </svg>
           </a>
         </li>
         <li class="spacer"></li>
         <li>
           <a href="https://github.com/jdussold" target="_blank" rel="noopener">
             <span>@jdussold</span>
-            <img src="./img/github-grey.svg" class="github-icon-default" alt="Github" />
-            <img src="./img/github-white.svg" class="github-icon-hover" alt="Github" />
+            <svg class="social-icon" viewBox="0 0 20 21" aria-hidden="true">
+              <use href="img/icons.svg#icon-github"/>
+            </svg>
           </a>
         </li>
       </ul>
     </footer>
-    <script src="./js/index.js"></script>
   </body>
 </html>
