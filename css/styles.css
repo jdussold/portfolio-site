@@ -48,6 +48,12 @@ body {
   padding: 0;
   height: 100vh;
   display: flex;
+  caret-color: transparent;
+}
+
+input,
+textarea {
+  caret-color: auto;
 }
 
 .main {
