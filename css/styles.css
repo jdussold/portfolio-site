@@ -560,12 +560,12 @@ footer ul li a:focus .social-icon {
 
 .contact-info,
 .cp-contact-info {
-  transition: var(--transition-default);
+  transition: color 0.3s;
 }
 
 .contact-info:hover,
 .cp-contact-info:hover {
-  filter: brightness(300%);
+  color: var(--color-text);
   cursor: pointer;
 }
 
@@ -603,8 +603,8 @@ footer ul li a:focus .social-icon {
   color: var(--color-text-muted);
 }
 
-.phone-info img,
-.cp-phone-info img {
+.phone-info .contact-icon,
+.cp-phone-info .contact-icon {
   margin-right: 10px;
 }
 
@@ -701,8 +701,8 @@ footer ul li a:focus .social-icon {
   color: var(--color-text);
 }
 
-.contact-info img,
-.cp-contact-info img {
+.contact-info .contact-icon,
+.cp-contact-info .contact-icon {
   margin-right: 10px;
   width: 20px;
   height: auto;
