@@ -147,7 +147,7 @@ const getSkillsContent = () => {
     <div class="top-section">
       <div class="info-tab">
         <span class="info-tab-text">skills</span>
-        <img src="./img/close-button.svg" class="close-button" alt="close button">
+        <svg class="close-button" viewBox="0 0 11 10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M5.34771 3.71879L9.06021 0.00628662L10.1207 1.06679L6.40821 4.77929L10.1207 8.49179L9.06021 9.55229L5.34771 5.83979L1.63521 9.55229L0.574707 8.49179L4.28721 4.77929L0.574707 1.06679L1.63521 0.00628662L5.34771 3.71879Z"/></svg>
       </div>
       <div class="info-tab-spacer"></div>
     </div>
@@ -257,7 +257,7 @@ const getEducationContent = () => {
     <div class="top-section">
       <div class="info-tab">
         <span class="info-tab-text">education</span>
-        <img src="./img/close-button.svg" class="close-button" alt="close button">
+        <svg class="close-button" viewBox="0 0 11 10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M5.34771 3.71879L9.06021 0.00628662L10.1207 1.06679L6.40821 4.77929L10.1207 8.49179L9.06021 9.55229L5.34771 5.83979L1.63521 9.55229L0.574707 8.49179L4.28721 4.77929L0.574707 1.06679L1.63521 0.00628662L5.34771 3.71879Z"/></svg>
       </div>
       <div class="info-tab-spacer"></div>
     </div>
@@ -291,7 +291,7 @@ const getResumeContent = () => {
     <div class="top-section">
       <div class="info-tab">
         <span class="info-tab-text">resume</span>
-        <img src="./img/close-button.svg" class="close-button" alt="close button">
+        <svg class="close-button" viewBox="0 0 11 10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M5.34771 3.71879L9.06021 0.00628662L10.1207 1.06679L6.40821 4.77929L10.1207 8.49179L9.06021 9.55229L5.34771 5.83979L1.63521 9.55229L0.574707 8.49179L4.28721 4.77929L0.574707 1.06679L1.63521 0.00628662L5.34771 3.71879Z"/></svg>
       </div>
       <div class="info-tab-spacer"></div>
     </div>
@@ -402,9 +402,9 @@ const gistPromises = gistIdentifiers.map((gistIdentifier, index) =>
         <div class="right-section">
           <div class="details-section">
             <div class="info-icons">
-              <img id="gist${
+              <svg id="gist${
                 index + 1
-              }-description-icon" class="description-icon" src="./img/description-icon.svg" alt="Description Icon">
+              }-description-icon" class="description-icon" viewBox="0 0 15 16" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M2.19676 13.1709C1.49928 12.4753 0.946158 11.6486 0.569167 10.7385C0.192176 9.82841 -0.00124976 8.85277 6.07612e-06 7.86768C6.07612e-06 3.72543 3.35776 0.367676 7.50001 0.367676C11.6423 0.367676 15 3.72543 15 7.86768C15 12.0099 11.6423 15.3677 7.50001 15.3677H6.07612e-06L2.19676 13.1709ZM4.50001 8.61768C4.50001 9.41333 4.81608 10.1764 5.37869 10.739C5.94129 11.3016 6.70436 11.6177 7.50001 11.6177C8.29566 11.6177 9.05872 11.3016 9.62133 10.739C10.1839 10.1764 10.5 9.41333 10.5 8.61768H4.50001Z"/></svg>
               <span id="gist${
                 index + 1
               }-details-text" class="details-text">details</span>
@@ -423,11 +423,12 @@ const gistPromises = gistIdentifiers.map((gistIdentifier, index) =>
       );
       descriptionElement.textContent = description;
 
-      const closeButtonElement = document.createElement("img");
-      closeButtonElement.src = "./img/close-button.svg";
-      closeButtonElement.id = `gist${index + 1}-close-button`;
-      closeButtonElement.classList.add("description-close-button");
-      descriptionElement.appendChild(closeButtonElement);
+      descriptionElement.insertAdjacentHTML(
+        "beforeend",
+        `<svg id="gist${
+          index + 1
+        }-close-button" class="description-close-button" viewBox="0 0 11 10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M5.34771 3.71879L9.06021 0.00628662L10.1207 1.06679L6.40821 4.77929L10.1207 8.49179L9.06021 9.55229L5.34771 5.83979L1.63521 9.55229L0.574707 8.49179L4.28721 4.77929L0.574707 1.06679L1.63521 0.00628662L5.34771 3.71879Z"/></svg>`
+      );
     })
 );
 
