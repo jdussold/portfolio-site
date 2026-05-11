@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let initialState = null;
   const totalLines = 120;
 
+  const activateOnKey = (el) => {
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  };
+
   // Generate line numbers
   const lineNumbers = document.querySelector(".line-numbers");
   for (let i = 1; i <= totalLines; i++) {
@@ -25,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         generateLineNumbers();
       }
     });
+    activateOnKey(item);
   });
 
   // Handle icon click events
@@ -39,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       selectFolderItem(folderId);
     }
   });
+  activateOnKey(personalInfoIcon);
 
   const skillsIcon = document.querySelector(".skills-icon");
   skillsIcon.addEventListener("click", () => {
@@ -47,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectFolderItem(folderId);
     generateLineNumbers();
   });
+  activateOnKey(skillsIcon);
 
   const educationIcon = document.querySelector(".education-icon");
   educationIcon.addEventListener("click", () => {
@@ -55,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectFolderItem(folderId);
     generateLineNumbers();
   });
+  activateOnKey(educationIcon);
 
   const briefcaseIcon = document.querySelector(".briefcase-icon");
   briefcaseIcon.addEventListener("click", () => {
@@ -63,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectFolderItem(folderId);
     generateLineNumbers();
   });
+  activateOnKey(briefcaseIcon);
 
   // Simulate a mouse click on the personal-info-icon after a delay
   setTimeout(() => {

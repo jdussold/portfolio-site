@@ -658,6 +658,22 @@ a:hover .linkedin-icon-default {
   cursor: pointer;
 }
 
+.folder-item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  color: var(--color-text);
+}
+
+.personal-info-icon:focus-visible,
+.skills-icon:focus-visible,
+.education-icon:focus-visible,
+.briefcase-icon:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  filter: brightness(300%);
+  cursor: pointer;
+}
+
 .contact-info-label,
 .cp-contact-info-label {
   padding: 10px 20px;
