@@ -245,10 +245,12 @@ footer ul li a {
   align-items: center;
 }
 
-footer ul li a img {
+footer ul li a .social-icon {
   width: 16px;
   height: 16px;
   margin-left: 10px;
+  color: var(--color-text-dim);
+  transition: color 0.3s;
 }
 
 footer ul li.spacer {
@@ -260,28 +262,9 @@ footer ul li a:focus {
   color: var(--color-text);
 }
 
-.github-icon-hover,
-.twitter-icon-hover,
-.linkedin-icon-hover {
-  display: none;
-}
-
-a:hover .github-icon-hover,
-a:hover .twitter-icon-hover,
-a:hover .linkedin-icon-hover {
-  display: inline;
-}
-
-a .github-icon-default,
-a .twitter-icon-default,
-a .linkedin-icon-default {
-  display: inline;
-}
-
-a:hover .github-icon-default,
-a:hover .twitter-icon-default,
-a:hover .linkedin-icon-default {
-  display: none;
+footer ul li a:hover .social-icon,
+footer ul li a:focus .social-icon {
+  color: var(--color-text);
 }
 
 /* index.html Specific Selectors */
