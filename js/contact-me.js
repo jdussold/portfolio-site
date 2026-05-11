@@ -6,6 +6,7 @@ const form = document.getElementById("contact-form");
 
 form.addEventListener("submit", () => {
   cpContent.classList.add("is-submitted");
+  setTimeout(() => form.reset(), 0);
 });
 
 // Live code preview mirroring form input
